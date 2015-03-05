@@ -1,7 +1,6 @@
-.nav li {
-  a {
+.navbar-default .navbar-nav > li > a {
     color: #009999;
-  }
+    text-decoration: none;
 }
 
 #logo {
@@ -12,6 +11,7 @@
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
+  text-decoration: none;
 }
 
 #logo:hover {
