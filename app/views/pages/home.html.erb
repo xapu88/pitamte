@@ -4,19 +4,42 @@
 	<h4>Odaberite kategoriju i postavite pitanje - sacekajte odgovore i ocenite najbolji.</h4>
 </div>
 
+<% if notice %>
+  <p class="alert alert-success"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p class="alert alert-danger"><%= alert %></p>
+<% end %>
+
 <div class='container'>
 	<div class='row'>
+		
 		<div class='col-sm-3'>
 			<div class='panel panel-default categories-panel'>
 			  <div class="panel-body">
 			  	<h4>Kategorije</h4>
 			    <ul class="categories">
+			    	<li id="category-0">
+							<div class='row category selected'>
+								<hr />
+						  	<span>Sva pitanja</span><i class="fa fa-chevron-right"></i>
+						  </div>
+						</li>
   					<%= render @categories %>
 					</ul>
 			  </div>
 			</div>
 		</div>
-		<div class='col-sm-9'>
+		<div class='col-sm-9 questions-panel'>
+	    <h3>Questions</h3>
+	    <%= form_for @question do |f| %>
+	    	<%= f.text_field :title, placeholder: "Upisite pitanje", class: "form-control" %>
+	    	<%= f.text_area :content, placeholder: "Po potrebi dodajte detaljniji opis", class: "form-control" %>
+	    	<%= f.submit "Postavi pitanje", class: "btn btn-regular form-control" %>
+	    <% end %>
+      <ul class="questions">
+        <%= render @questions %>
+      </ul>
 		</div>
 	</div>
 </div>

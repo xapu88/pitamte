@@ -4,8 +4,31 @@
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Pocetna", root_path %></li>
-        <li><%= link_to "Registruj se", '#' %></li>
-        <li><%= link_to "Prijavi se", '#' %></li>
+        <% if user_signed_in? %>
+          <li>
+            <div class="dropdown">
+              <div id="dropdownUser" data-toggle="dropdown" aria-expanded="true">
+                <%= current_user.email %>
+                <span class="caret"></span>
+              </div>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownUser">
+                <li>
+                  <span>
+                    <i class='fa fa-user'></i><%= link_to "Profil", "#" %>
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <i class='fa fa-sign-out'></i><%= link_to "Odjavi se", destroy_user_session_path, :method => :delete %>
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </li>
+        <% else %>
+          <li><%= link_to "Registruj se", new_user_registration_path %></li>
+          <li><%= link_to "Prijavi se", new_user_session_path %></li>
+        <% end %>
       </ul>
     </nav>
   </div>

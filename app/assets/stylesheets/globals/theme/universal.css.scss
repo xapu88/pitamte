@@ -17,3 +17,26 @@ textarea {
 .center h1 {
   margin-bottom: 10px;
 }
+
+.dropdown-menu li {
+	padding-top: 5px;
+	padding-bottom: 5px;
+
+	span {
+		padding-left: 10px;
+		color: #009999;
+		text-decoration: none;
+		&:hover {
+	    color: #222;
+	  }
+	}
+	a {
+		padding-left: 5px;
+		color: #009999;
+		text-decoration: none;
+		&:hover {
+	    color: #222;
+	    text-decoration: none;
+	  }
+	}
+}

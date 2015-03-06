@@ -12,9 +12,19 @@
   padding-top: 9px;
   font-weight: bold;
   text-decoration: none;
+  &:hover {
+    color: #222;
+    text-decoration: none;
+  }
 }
 
-#logo:hover {
-  color: #222;
-  text-decoration: none;
+#dropdownUser {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: #009999;
+  cursor: pointer;
+
+  &:hover {
+    color: #222;
+  }
 }
