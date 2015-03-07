@@ -1,6 +1,17 @@
 <li id="question-<%= question.id %>">
 	<div class='row question'>
 		<hr />
-  	<p><b><%= question.title %></b><br /><%= truncate(question.content, length: 75) %></p>
+		<div class='col-sm-6 question-created-at'>
+  		<span><%= question.created_at.strftime("%d.%m.%Y. %H:%M") %></span>
+  	</div>
+  	<div class='col-sm-6 question-category'>
+  		<span>[<%= question.category.title %>]</span>
+  	</div>
+  	<div class='col-sm-12 question-title'>
+  		<span><b><%= question.title %></b></span>
+  	</div>
+  	<div class='col-sm-12 question-content'>
+  		<span><%= truncate(question.content, length: 100) %></span>
+  	</div>
   </div>
 </li>

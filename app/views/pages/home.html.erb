@@ -19,8 +19,8 @@
 			  <div class="panel-body">
 			  	<h4>Kategorije</h4>
 			    <ul class="categories">
-			    	<li id="category-0">
-							<div class='row category selected'>
+			    	<li>
+							<div class='row category selected' id="category-0">
 								<hr />
 						  	<span>Sva pitanja</span><i class="fa fa-chevron-right"></i>
 						  </div>
@@ -30,23 +30,33 @@
 			  </div>
 			</div>
 		</div>
-		<div class='col-sm-9 questions-panel'>
-	    <h3>Questions</h3>
-	    <%= form_for @question do |f| %>
-	    	<%= f.text_field :title, placeholder: "Upisite pitanje", class: "form-control" %>
-	    	<%= f.text_area :content, placeholder: "Po potrebi dodajte detaljniji opis", class: "form-control" %>
-	    	<%= f.submit "Postavi pitanje", class: "btn btn-regular form-control" %>
-	    <% end %>
-      <ul class="questions">
-        <%= render @questions %>
-      </ul>
+		<div class='col-sm-6 questions-panel'>
+	    <div class='row'>
+		    <div class='col-sm-6'>
+		    	<h3>Pitanja</h3>
+		    </div>
+		    <%= render 'questions/form' %>
+		  </div>
+		  <div class='row'>
+	      <ul class="questions">
+	        <%= render @questions %>
+	      </ul>
+	    </div>
 		</div>
 	</div>
 </div>
 
 <script>
-	$('.category').on('click', function () {
+	$(document).on( 'click', '.category', function() {
 		$('.categories').children().children().removeClass('selected');
 		$(this).toggleClass('selected');
+		var id = $(this).attr('id').substr(9);
+		$('#question_category_id').val(id);
+		if (id == 0) {
+			$('.question-form').addClass('hidden');
+		}
+		else {
+			$('.question-form').removeClass('hidden');
+		}
 	});
 </script>

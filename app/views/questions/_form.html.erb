@@ -1,0 +1,14 @@
+<div class='col-sm-12 question-form hidden'>
+	<%= form_for @question do |f| %>
+		<div class="form-group">
+			<%= f.text_field :title, placeholder: "Upisite pitanje", class: "form-control" %>
+		</div>
+		<div class="form-group">
+			<%= f.text_area :content, placeholder: "Po potrebi dodajte detaljniji opis", class: "form-control" %>
+		</div>
+		<%= f.hidden_field :category_id, :value => 0 %>
+		<div class="form-group">
+			<%= f.submit "Postavi pitanje", class: "form-control" %>
+		</div>
+	<% end %>
+</div>
