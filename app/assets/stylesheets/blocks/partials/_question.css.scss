@@ -34,6 +34,7 @@
 		.question-created-at {
 			span {
 				color: #ccc;
+				margin-right: 10px;
 			}
 		}
 		.question-title {
@@ -45,12 +46,6 @@
 		.question-content {
 			span {
 				color: #777;
-			}
-		}
-		.question-category {
-			span {
-				color: #ccc;
-				float: right;
 			}
 		}			
 	}
@@ -99,8 +94,9 @@
 	}
 }
 
-.question-form.hidden {
+#question-form {
 	display: none;
+	background-color: #f8f8f8;
 }
 
 .question-form {

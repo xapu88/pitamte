@@ -1,12 +1,15 @@
 <li id="question-<%= question.id %>">
 	<div class='row question'>
 		<hr />
-		<div class='col-sm-4 question-created-at'>
+		<div class='col-sm-11 question-created-at'>
   		<span><%= question.created_at.strftime("%d.%m.%Y. %H:%M") %></span>
-  	</div>
-  	<div class='col-sm-8 question-category'>
   		<span>[<%= question.category.title %>]</span>
   	</div>
+    <div class='col-sm-1'>
+      <%= link_to question, remote: true, method: :delete, data: { confirm: 'Da li ste sigurni? Pitanje ce biti trajno obrisano.' } do %>
+        <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <% end %>
+    </div>
   	<div class='col-sm-12 question-title'>
   		<span><b><%= question.title %></b></span>
   	</div>

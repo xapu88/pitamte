@@ -1,5 +1,5 @@
-<div class='col-sm-12 question-form hidden'>
-	<%= form_for @question do |f| %>
+<div class='col-sm-12 question-form'>
+	<%= form_for @question, :remote => true, :format => :js do |f| %>
 		<div class="form-group">
 			<%= f.text_field :title, placeholder: "Upisite pitanje", class: "form-control" %>
 		</div>

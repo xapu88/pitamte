@@ -32,15 +32,16 @@
 		</div>
 		<div class='col-sm-6 questions-panel'>
 	    <div class='row questions-panel-header'>
-		    <div class='col-sm-3 questions-panel-header-title'>
+		    <div class='col-sm-4 questions-panel-header-title'>
 		    	<h4>Pitanja</h4>
 		    </div>
-		    <div class='col-sm-9'>
+		    <div class='col-sm-8'>
 		    	<h4 class='questions-panel-header-category'>Sva pitanja</h4>
 		    </div>
 		  </div>
+		  <div class='row' id='question-form'>
+		  </div>
 		  <div class='row'>
-		  	<%= render 'questions/form' %>
 	      <ul class="questions">
 	        <%= render @questions %>
 	      </ul>
@@ -53,15 +54,23 @@
 	$(document).on( 'click', '.category', function() {
 		$('.categories').children().children().removeClass('selected');
 		$(this).toggleClass('selected');
-		var id = $(this).attr('id').substr(9);
-		$('#question_category_id').val(id);
 		var cat = $(this).children().eq(1).text();
 		$('.questions-panel-header-category').empty().html(cat);
+		var id = $(this).attr('id').substr(9);
+
 		if (id == 0) {
-			$('.question-form').addClass('hidden');
+			$('#question-form').slideUp(350);
+			$('#question-form').empty();
 		}
 		else {
-			$('.question-form').removeClass('hidden');
+			$('#question-form').html("<%= j (render 'questions/form') %>");
+			$('#question-form').slideDown(350);
 		}
+
+		$('#question_category_id').val(id);
+	});
+
+	$(document).on( 'click', '.close', function() {
+		$(this).addClass('confirm-delete');
 	});
 </script>

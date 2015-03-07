@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   
-  resources :questions, only: [:create]
+  resources :questions, only: [:create, :destroy]
 
   root 'pages#home'
   get 'contact' => 'pages#contact'
