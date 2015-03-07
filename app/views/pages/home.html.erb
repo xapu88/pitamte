@@ -31,13 +31,16 @@
 			</div>
 		</div>
 		<div class='col-sm-6 questions-panel'>
-	    <div class='row'>
-		    <div class='col-sm-6'>
-		    	<h3>Pitanja</h3>
+	    <div class='row questions-panel-header'>
+		    <div class='col-sm-3 questions-panel-header-title'>
+		    	<h4>Pitanja</h4>
 		    </div>
-		    <%= render 'questions/form' %>
+		    <div class='col-sm-9'>
+		    	<h4 class='questions-panel-header-category'>Sva pitanja</h4>
+		    </div>
 		  </div>
 		  <div class='row'>
+		  	<%= render 'questions/form' %>
 	      <ul class="questions">
 	        <%= render @questions %>
 	      </ul>
@@ -52,6 +55,8 @@
 		$(this).toggleClass('selected');
 		var id = $(this).attr('id').substr(9);
 		$('#question_category_id').val(id);
+		var cat = $(this).children().eq(1).text();
+		$('.questions-panel-header-category').empty().html(cat);
 		if (id == 0) {
 			$('.question-form').addClass('hidden');
 		}

@@ -1,11 +1,33 @@
 .questions-panel {
-	h3 {
+	h4 {
 		color: #009999;
-		margin-bottom: 30px;
 		font-weight: bold;
+		margin-top: 18px;
+		margin-bottom: 15px;
 	}
 	ul {
 		list-style-type: none;
+	}
+	hr {
+		margin-top: 0;
+		margin-bottom: 15px;
+	}
+	.question {
+		margin-bottom: 15px;
+	}
+	.questions-panel-header {
+		border: 1px solid #009999;
+		margin-top: 20px;
+		border-top-left-radius: 4px;
+		border-top-right-radius: 4px;
+		.questions-panel-header-title {
+			h4 {
+				text-transform: uppercase;
+			}
+		}
+		.questions-panel-header-category {
+			float: right;
+		}
 	}
 	div {
 		word-wrap: break-word;
@@ -79,4 +101,8 @@
 
 .question-form.hidden {
 	display: none;
+}
+
+.question-form {
+	margin-top: 15px;
 }

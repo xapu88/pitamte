@@ -1,10 +1,10 @@
 <li id="question-<%= question.id %>">
 	<div class='row question'>
 		<hr />
-		<div class='col-sm-6 question-created-at'>
+		<div class='col-sm-4 question-created-at'>
   		<span><%= question.created_at.strftime("%d.%m.%Y. %H:%M") %></span>
   	</div>
-  	<div class='col-sm-6 question-category'>
+  	<div class='col-sm-8 question-category'>
   		<span>[<%= question.category.title %>]</span>
   	</div>
   	<div class='col-sm-12 question-title'>
