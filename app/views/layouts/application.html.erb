@@ -12,10 +12,12 @@
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
 <body>
-	<%= render 'layouts/header' %>
-
-  <%= yield %>
-  
-  <%= render 'layouts/footer' %>
+  <div id="page-wrapper">
+  	<%= render 'layouts/header' %>
+    <div id='page-content'>
+      <%= yield %>
+    </div>
+    <%= render 'layouts/footer' %>
+  </div>
 </body>
 </html>
