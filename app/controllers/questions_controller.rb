@@ -1,6 +1,11 @@
 class QuestionsController < ApplicationController
 	before_filter :get_category, only: [:create]
-	before_filter :get_question, only: [:destroy]
+	before_filter :get_question, only: [:show, :destroy]
+
+	def show
+		@answer = Answer.new
+		@answers = @question.answers
+	end
 
 	def create
 		@question = @category.questions.build(question_params)

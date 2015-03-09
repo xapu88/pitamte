@@ -1,0 +1,11 @@
+<div class='col-sm-12 answers-form'>
+	<%= form_for @answer do |f| %>
+		<div class="form-group">
+			<%= f.text_area :content, placeholder: "Upisite odgovor", class: "form-control" %>
+		</div>
+		<%= f.hidden_field :question_id, :value => @question.id %>
+		<div class="form-group">
+			<%= f.submit "Posalji odgovor", class: "form-control" %>
+		</div>
+	<% end %>
+</div>

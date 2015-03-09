@@ -16,5 +16,27 @@
   	<div class='col-sm-12 question-content'>
   		<span><%= truncate(question.content, length: 100) %></span>
   	</div>
+    <div class='col-sm-3 question-share'>
+      <div class="fb-share-button" data-href="https://pitamte.herokuapp.com/question&lt;%=question.id%&gt;" data-layout="button"></div>
+      </div>
+    <div class='col-sm-3 question-votes'>
+      <i class='fa fa-star-o'></i>
+      <i class='fa fa-star-o'></i>
+      <i class='fa fa-star-o'></i>
+      <i class='fa fa-star-o'></i>
+      <i class='fa fa-star-o'></i>
+    </div>
+    <div class='col-sm-6 question-answers'>
+      <span>Odgovora: <%= question.answers.count %></span>
+      <%= link_to question do %>
+        <% if question.answers.count == 0 %>
+          <span class='unanswered'>odgovori</span>
+          <i class='fa fa-arrow-right unanswered'></i>
+        <% else %>
+          <span class='answered'>pogledaj</span>
+          <i class='fa fa-arrow-right answered'></i>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </li>
