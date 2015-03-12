@@ -1,1 +1,26 @@
-<p>Odgovor [<%= answer.id %>]: <%= answer.content %></p>
+<li id="answer-<%= answer.id %>">
+	<div class='row question'>
+		<hr />
+		<div class='col-sm-11 question-created-at'>
+  		<span><%= answer.created_at.strftime("%d.%m.%Y. %H:%M") %></span>
+  	</div>
+    <div class='col-sm-1'>
+      <%= link_to answer, remote: true, method: :delete, data: { confirm: 'Da li ste sigurni? Odgovor ce biti trajno obrisan.' } do %>
+        <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <% end %>
+    </div>
+  	<div class='col-sm-12 question-content'>
+  		<span><%= answer.content %></span>
+  	</div>
+    <div class='col-sm-3 question-share'>
+      <div class="fb-share-button" data-href="https://pitamte.herokuapp.com/questions/<%=@question.id%>#answer-<%= answer.id %>" data-layout="button"></div>
+      </div>
+    <div class='col-sm-3 question-votes'>
+      <i class='fa fa-star-o'></i>
+      <i class='fa fa-star-o'></i>
+      <i class='fa fa-star-o'></i>
+      <i class='fa fa-star-o'></i>
+      <i class='fa fa-star-o'></i>
+    </div>
+  </div>
+</li>

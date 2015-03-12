@@ -1,10 +1,40 @@
 <div class="container">
 	<div class="row">
-		<div class="col-md-6 col-md-offset-3">
-			<h4><%= @question.title %></h4>
-			<span><%= @question.content %></span>
-			<%= render @answers %>
-			<%= render 'answers/form' %>
+		<div class="col-md-6 col-md-offset-3 questions-panel">
+			<div class='row questions-panel-header'>
+		    <div class='col-md-3 col-sm-4 questions-panel-header-title'>
+		    	<h4>Pitanje</h4>
+		    </div>
+		    <div class='col-md-9 col-sm-8'>
+		    	<h4 class='questions-panel-header-category'><%= @question.category.title %></h4>
+		    </div>
+		  </div>
+		  <div class='row question'>
+		  	<div class='col-md-12 question-created-at margin-top-middle'>
+					<span><%= @question.created_at.strftime("%d.%m.%Y. %H:%M") %></span>
+				</div>
+		  	<div class='col-md-12 question-title'>
+					<span><%= @question.title %></span>
+				</div>
+				<div class='col-md-12 question-content'>
+					<span><%= @question.content %></span>
+				</div>
+			</div>
+			<div class='row'>
+				<div class='col-md-12'>
+					<h4>Odgovori</h4>
+					<ul class="answers">
+		        <%= render @answers %>
+		      </ul>
+				</div>
+				<%= render 'answers/form' %>
+			</div>
 		</div>
 	</div>
 </div>
+
+<script>
+	$(document).on( 'click', '.close', function() {
+		$(this).addClass('confirm-delete');
+	});
+</script>
