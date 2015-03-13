@@ -1,6 +1,7 @@
 class QuestionsController < ApplicationController
 	before_filter :get_category, only: [:create]
 	before_filter :get_question, only: [:show, :destroy]
+	before_action :authenticate_user!, only: [:show, :destroy]
 
 	def show
 		@answer = Answer.new
@@ -9,6 +10,7 @@ class QuestionsController < ApplicationController
 
 	def create
 		@question = @category.questions.build(question_params)
+		@question.user = current_user if user_signed_in?
 		respond_to do |format|
 			if @question.save
 				format.html { redirect_to root_path, note: "Pitanje uspesno postavljeno!" }

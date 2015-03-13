@@ -1,9 +1,11 @@
 class AnswersController < ApplicationController
 	before_filter :get_question, only: [:create]
 	before_filter :get_answer, only: [:destroy]
+	before_action :authenticate_user!
 
   def create
 		@answer = @question.answers.build(answer_params)
+		@answer.user = current_user if user_signed_in?
 		if @answer.save
 			redirect_to question_path(@question.id), note: "Odgovor uspesno postavljen!"
 		else

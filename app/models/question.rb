@@ -6,4 +6,8 @@ class Question < ActiveRecord::Base
   validates :category_id, presence: true
   validates :title, presence: true, length: { minimum: 3, maximum: 50 }
   validates :content, length: { maximum: 300 }
+
+  def owner?(user)
+  	self.user_id == user.id
+  end
 end
