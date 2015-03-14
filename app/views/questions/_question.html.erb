@@ -1,12 +1,17 @@
 <li id="question-<%= question.id %>">
 	<div class='row question'>
 		<hr />
-		<div class='col-sm-4 question-created-at'>
-  		<span><%= question.created_at.strftime("%d.%m.%Y. %H:%M") %></span>
-    </div>
-    <div class='col-sm-8 question-created-at'>
-  		<span class="pull-right">[<%= question.category.title %>]</span>
+		<div class='col-sm-11 question-created-at'>
+  		<span><%= question.created_at.strftime("%d.%m.%Y. %H:%M") %>
+  		<span>[<%= question.category.title %>]</span>
   	</div>
+    <% if user_signed_in? && question.owner?(current_user) %>
+      <div class='col-sm-1'>
+        <%= link_to question, remote: true, method: :delete, data: { confirm: 'Da li ste sigurni? Pitanje ce biti trajno obrisano.' } do %>
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <% end %>
+      </div>
+    <% end %>
   	<div class='col-sm-12 question-title'>
   		<span><%= question.title %></span>
   	</div>

@@ -15,7 +15,7 @@
   		<span><%= answer.content %></span>
   	</div>
     <div class='col-sm-3 question-share'>
-      <div class="fb-share-button" data-href="https://pitamte.herokuapp.com/questions/<%=@question.id%>#answer-<%= answer.id %>" data-layout="button"></div>
+      <div class="fb-share-button" data-href="https://pitamte.herokuapp.com/questions/<%=answer.question.id%>#answer-<%= answer.id %>" data-layout="button"></div>
       </div>
     <div class='col-sm-3 question-votes'>
       <i class='fa fa-star-o'></i>

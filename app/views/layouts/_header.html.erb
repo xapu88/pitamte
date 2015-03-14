@@ -14,9 +14,20 @@
               <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownUser">
                 <li>
                   <span>
+                    <i class='fa fa-question-circle'></i><%= link_to "Moja pitanja", my_questions_path %>
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <i class='fa fa-exclamation-circle'></i><%= link_to "Moji odgovori", my_answers_path %>
+                  </span>
+                </li>
+                <li>
+                  <span>
                     <i class='fa fa-user'></i><%= link_to "Detalji profila", edit_user_registration_path %>
                   </span>
                 </li>
+                <hr />
                 <li>
                   <span>
                     <i class='fa fa-sign-out'></i><%= link_to "Odjavi se", destroy_user_session_path, :method => :delete %>

@@ -1,0 +1,24 @@
+<div class='container'>
+	<div class='row'>
+		<div class='col-md-6 col-md-offset-3 col-sm-12 questions-panel'>
+		  <div class='row questions-panel-header'>
+		    <div class='col-sm-12 questions-panel-header-title'>
+		    	<h4>Lista svih mojih pitanja</h4>
+		    </div>
+		  </div>
+		  <div class='row' id='question-form'>
+		  </div>
+		  <div class='row'>
+		    <ul class="questions">
+		      <%= render @questions %>
+		    </ul>
+		  </div>
+		</div>
+	</div>
+</div>
+
+<script>
+	$(document).on( 'click', '.close', function() {
+		$(this).addClass('confirm-delete');
+	});
+</script>
