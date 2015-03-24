@@ -10,4 +10,8 @@ class Question < ActiveRecord::Base
   def owner?(user)
   	self.user_id == user.id
   end
+
+  def answered?
+    !self.answers.empty?
+  end
 end
