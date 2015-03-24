@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
 	before_filter :get_category, only: [:create]
-	before_filter :get_question, only: [:show, :destroy]
-	before_action :authenticate_user!, only: [:show, :destroy]
+	before_filter :get_question, except: [:create]
+	before_action :authenticate_user!, except: [:create]
 
 	def show
 		@answer = Answer.new
@@ -18,6 +18,15 @@ class QuestionsController < ApplicationController
 			else
 				format.html { redirect_to root_path, alert: "GRESKA! Niste ispravno uneli pitanje." }
 			end
+		end
+	end
+
+	def update
+		@question.update(question_params)
+		if @question.save
+			redirect_to my_questions_path
+		else
+			redirect_to edit_question_path(@question)
 		end
 	end
 

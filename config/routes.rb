@@ -3,8 +3,8 @@ devise_for :users, controllers: { sessions: "users/sessions", registrations: "us
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   
-  resources :questions, only: [:show, :create, :destroy]
-  resources :answers, only: [:create, :destroy]
+  resources :questions
+  resources :answers
 
   root 'pages#home'
   get 'my_questions' => 'pages#my_questions'

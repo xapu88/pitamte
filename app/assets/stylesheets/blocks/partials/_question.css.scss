@@ -136,6 +136,36 @@
 		text-shadow: none;
 	}
 
+	button.edit-btn {
+		background-color: #009999;
+		background-image: none;
+		color: #fff;
+		border-radius: 3px;
+		border: solid 1px #009999;
+		border-color: #009999;
+		border-top-color: #009999;
+		border-right-color: #009999;
+		border-bottom-color: #009999;
+		border-left-color: #009999;
+		text-shadow: none;
+		padding: 0 5px 0 5px;
+		&:hover {
+			background-color: #00abab;
+		}
+		span {
+			font-size: 0.75em;
+			font-weight: bold;
+			text-transform: uppercase;
+		}
+	}
+
+	select {
+		background-color: #fff;
+		border-radius: 4px;
+		border: solid 1px #ccc;
+		padding: 8px 10px 7px;
+	}
+
 	form input[type=submit]:not(.disabled):hover {
 		background-color: #00abab;
 		background-image: none;
