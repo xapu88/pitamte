@@ -5,7 +5,7 @@
   		<span><%= question.created_at.strftime("%d.%m.%Y. %H:%M") %>
   		<span>[<%= question.category.title %>]</span>
   	</div>
-    <% if user_signed_in? && question.owner?(current_user) && !question.answered? %>
+    <% if user_signed_in? && question.owner?(current_user) && !question.answered? && !question.approved? %>
       <div class='col-sm-2'>
         <%= link_to edit_question_path(question) do %>
           <button class="edit-btn pull-right"><span>Edit</span></button>

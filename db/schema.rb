@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150309221436) do
+ActiveRecord::Schema.define(version: 20150325164539) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -50,8 +50,9 @@ ActiveRecord::Schema.define(version: 20150309221436) do
     t.text     "content"
     t.integer  "user_id"
     t.integer  "question_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.boolean  "approved",    default: false
   end
 
   add_index "answers", ["question_id", "user_id", "created_at"], name: "index_answers_on_question_id_and_user_id_and_created_at"
@@ -69,8 +70,9 @@ ActiveRecord::Schema.define(version: 20150309221436) do
     t.text     "content"
     t.integer  "category_id"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.boolean  "approved",    default: false
   end
 
   add_index "questions", ["category_id"], name: "index_questions_on_category_id"

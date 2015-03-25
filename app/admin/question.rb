@@ -1,5 +1,5 @@
 ActiveAdmin.register Question do
-  permit_params :title, :content, :category_id
+  permit_params :title, :content, :category_id, :approved
 
 
   index do
@@ -9,6 +9,7 @@ ActiveAdmin.register Question do
     column :user do |question|
       auto_link question.user
     end
+    column :approved
     actions
   end
 end

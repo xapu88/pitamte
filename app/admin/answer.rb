@@ -1,5 +1,5 @@
 ActiveAdmin.register Answer do
-  permit_params :content
+  permit_params :content, :approved
 
   index do
     id_column
@@ -10,6 +10,7 @@ ActiveAdmin.register Answer do
     column :user do |answer|
       auto_link answer.user
     end
+    column :approved
     actions
   end
 end
