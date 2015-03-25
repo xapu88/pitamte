@@ -4,7 +4,7 @@
 		<div class='col-sm-9 question-created-at'>
   		<span><%= answer.created_at.strftime("%d.%m.%Y. %H:%M") %></span>
   	</div>
-    <% if user_signed_in? && answer.owner?(current_user) && !answer.approved? %>
+    <% if user_signed_in? && answer.owner?(current_user) %>
       <div class='col-sm-2'>
         <%= link_to edit_answer_path(answer) do %>
           <button class="edit-btn pull-right"><span>Edit</span></button>

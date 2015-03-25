@@ -2,6 +2,7 @@ class QuestionsController < ApplicationController
 	before_filter :get_category, only: [:create]
 	before_filter :get_question, except: [:create]
 	before_action :authenticate_user!, except: [:create]
+	after_action :verify_authorized, except: [:index, :show, :new, :create]
 
 	def show
 		@answer = Answer.new
@@ -21,8 +22,13 @@ class QuestionsController < ApplicationController
 		end
 	end
 
+	def edit
+		authorize @question
+	end
+
 	def update
 		@question.update(question_params)
+		authorize @question
 		if @question.save
 			redirect_to my_questions_path
 		else
@@ -31,6 +37,7 @@ class QuestionsController < ApplicationController
 	end
 
 	def destroy
+		authorize @question
 		@question.destroy
 		respond_to do |format|
 			format.js {}

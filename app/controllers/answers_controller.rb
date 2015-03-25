@@ -2,6 +2,7 @@ class AnswersController < ApplicationController
 	before_filter :get_question, only: [:create]
 	before_filter :get_answer, only: [:edit, :update, :destroy]
 	before_action :authenticate_user!
+	after_action :verify_authorized, except: [:index, :show, :new, :create]
 
   def create
 		@answer = @question.answers.build(answer_params)
@@ -14,8 +15,13 @@ class AnswersController < ApplicationController
 		end
 	end
 
+	def edit
+		authorize @answer
+	end
+
 	def update
 		@answer.update(answer_params)
+		authorize @answer
 		if @answer.save
 			redirect_to my_answers_path
 		else
@@ -24,6 +30,7 @@ class AnswersController < ApplicationController
 	end
 
 	def destroy
+		authorize @answer
 		@answer.destroy
 		respond_to do |format|
 			format.js {}
