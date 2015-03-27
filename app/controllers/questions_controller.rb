@@ -11,7 +11,12 @@ class QuestionsController < ApplicationController
 
 	def create
 		@question = @category.questions.build(question_params)
-		@question.user = current_user if user_signed_in?
+		if user_signed_in?
+			@question.user = current_user
+			if params[:sign] == "1"
+				@question.signature = current_user.username
+			end
+		end
 		respond_to do |format|
 			if @question.save
 				format.html { redirect_to root_path, note: "Pitanje uspesno postavljeno!" }

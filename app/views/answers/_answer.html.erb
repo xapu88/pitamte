@@ -3,6 +3,9 @@
 		<hr />
 		<div class='col-sm-9 question-created-at'>
   		<span><%= answer.created_at.strftime("%d.%m.%Y. %H:%M") %></span>
+      <% unless answer.signature.nil? %>
+        <span>odgovorio: <%= answer.signature %></span>
+      <% end %>
   	</div>
     <% if user_signed_in? && answer.owner?(current_user) %>
       <div class='col-sm-2'>

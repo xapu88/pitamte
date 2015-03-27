@@ -3,6 +3,9 @@
 		<hr />
 		<div class='col-sm-9 question-created-at'>
   		<span><%= question.created_at.strftime("%d.%m.%Y. %H:%M") %>
+      <% unless question.signature.nil? %>
+        <span>pitao: <%= question.signature %></span>
+      <% end %>
   		<span>[<%= question.category.title %>]</span>
   	</div>
     <% if user_signed_in? && question.owner?(current_user) %>

@@ -7,7 +7,10 @@ class AnswersController < ApplicationController
   def create
 		@answer = @question.answers.build(answer_params)
 		@answer.question_id = @question.id
-		@answer.user = current_user if user_signed_in?
+		@answer.user = current_user
+		if params[:sign] == "1"
+			@answer.signature = current_user.username
+		end
 		if @answer.save
 			redirect_to question_path(@question.id), note: "Odgovor uspesno postavljen!"
 		else

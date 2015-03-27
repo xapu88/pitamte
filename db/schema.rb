@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150325164539) do
+ActiveRecord::Schema.define(version: 20150327001118) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20150325164539) do
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.boolean  "approved",    default: false
+    t.string   "signature"
   end
 
   add_index "answers", ["question_id", "user_id", "created_at"], name: "index_answers_on_question_id_and_user_id_and_created_at"
@@ -73,6 +74,7 @@ ActiveRecord::Schema.define(version: 20150325164539) do
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.boolean  "approved",    default: false
+    t.string   "signature"
   end
 
   add_index "questions", ["category_id"], name: "index_questions_on_category_id"
@@ -92,6 +94,7 @@ ActiveRecord::Schema.define(version: 20150325164539) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "username"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
