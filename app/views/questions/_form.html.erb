@@ -6,15 +6,15 @@
 			</div>
 		<% end %>
 		<div class="form-group">
-			<%= f.text_field :title, placeholder: "Upisite pitanje", class: "form-control" %>
+			<%= f.text_field :title, placeholder: "Upiši pitanje", class: "form-control" %>
 		</div>
 		<div class="form-group">
-			<%= f.text_area :content, placeholder: "Po potrebi dodajte detaljniji opis", class: "form-control" %>
+			<%= f.text_area :content, placeholder: "Po potrebi dodaj detaljniji opis", class: "form-control" %>
 		</div>
 		<% if user_signed_in? %>
 			<div class="form-group check-box-row">
         <%= check_box_tag :sign %>
-        <span>Potpisi se</span>
+        <span>Potpiši se</span>
       </div>
 		<% end %>
 		<% if @question.new_record? %>

@@ -1,9 +1,9 @@
 <%- if controller_name != 'sessions' %>
-  Vec imas nalog? <%= link_to "Prijavi se", new_session_path(resource_name) %><br />
+  Već imaš nalog? <%= link_to "Prijavi se", new_session_path(resource_name) %><br />
 <% end -%>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  Nemas nalog? <%= link_to "Registruj se", new_registration_path(resource_name) %><br />
+  Nemaš nalog? <%= link_to "Registruj se", new_registration_path(resource_name) %><br />
 <% end -%>
 <!--
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
