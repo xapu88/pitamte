@@ -16,6 +16,8 @@
         <%= check_box_tag :sign %>
         <span>Potpiši se</span>
       </div>
+    <% else %>
+    	<%= recaptcha_tags %>
 		<% end %>
 		<% if @question.new_record? %>
 			<%= f.hidden_field :category_id, :value => 0 %>

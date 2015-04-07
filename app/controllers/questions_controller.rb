@@ -18,11 +18,20 @@ class QuestionsController < ApplicationController
 			end
 		end
 		respond_to do |format|
-			if @question.save
-				format.html { redirect_to root_path, note: "Pitanje uspesno postavljeno!" }
-				format.js {}
+			if user_signed_in?
+				if @question.save
+					format.html { redirect_to root_path, note: "Pitanje uspesno postavljeno!" }
+					format.js {}
+				else
+					format.html { redirect_to root_path, alert: "GRESKA! Niste ispravno uneli pitanje." }
+				end
 			else
-				format.html { redirect_to root_path, alert: "GRESKA! Niste ispravno uneli pitanje." }
+				if verify_recaptcha(:model => @question, :message => "Greška pri ispunjavanju reCAPTCHA!") && @question.save
+					format.html { redirect_to root_path, note: "Pitanje uspesno postavljeno!" }
+					format.js {}
+				else
+					format.html { redirect_to root_path, alert: "GRESKA! Niste ispravno uneli pitanje." }
+				end
 			end
 		end
 	end
