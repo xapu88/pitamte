@@ -37,6 +37,11 @@
 				margin-right: 10px;
 			}
 		}
+		.question-actions {
+			i {
+				margin-top: 4px;
+			}
+		}
 		.question-title {
 			span {
 				font-size: 1.2em;
@@ -57,6 +62,15 @@
 			i {
 				color: #009999;
 				margin-top: 3px;
+			}
+		}
+		.question-author {
+			margin-top: 5px;
+			span {
+				text-transform: uppercase;
+				text-align: center;
+				font-size: 0.75em;
+				color: #777;
 			}
 		}
 		.question-answers {

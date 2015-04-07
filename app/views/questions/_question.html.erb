@@ -1,20 +1,15 @@
 <li id="question-<%= question.id %>">
 	<div class='row question'>
 		<hr />
-		<div class='col-sm-9 question-created-at'>
+		<div class='col-sm-10 question-created-at'>
   		<span><%= question.created_at.strftime("%d.%m.%Y. %H:%M") %>
-      <% unless question.signature.nil? %>
-        <span>pitao: <%= question.signature %></span>
-      <% end %>
   		<span>[<%= question.category.title %>]</span>
   	</div>
     <% if user_signed_in? && question.owner?(current_user) %>
-      <div class='col-sm-2'>
+      <div class='col-sm-2 question-actions'>
         <%= link_to edit_question_path(question) do %>
-          <button class="edit-btn pull-right"><span>Edit</span></button>
+          <i class='fa fa-edit'></i>
         <% end %>
-      </div>
-      <div class='col-sm-1'>
         <%= link_to question, remote: true, method: :delete, data: { confirm: 'Da li ste sigurni? Pitanje će biti trajno obrisano.' } do %>
           <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <% end %>
@@ -26,15 +21,17 @@
   	<div class='col-sm-12 question-content'>
   		<span><%= truncate(question.content, length: 100) %></span>
   	</div>
-    <div class='col-sm-3 question-share'>
+    <div class='col-sm-2 question-share'>
       <div class="fb-share-button" data-href="https://pitamte.herokuapp.com/questions/<%=question.id%>" data-layout="button"></div>
       </div>
-    <div class='col-sm-3 question-votes'>
-      <i class='fa fa-star-o'></i>
-      <i class='fa fa-star-o'></i>
-      <i class='fa fa-star-o'></i>
-      <i class='fa fa-star-o'></i>
-      <i class='fa fa-star-o'></i>
+    <div class='col-sm-4 question-author'>
+      <span>
+      <% if question.signature.nil? %>
+        anonimno
+      <% elsif !question.signature.nil? %>
+        <%= question.signature %>
+      <% end %>
+      </span>
     </div>
     <div class='col-sm-6 question-answers'>
       <span>Odgovora: <%= question.answers.count %></span>
