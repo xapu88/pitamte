@@ -17,7 +17,9 @@
         <span>Potpiši se</span>
       </div>
     <% else %>
-    	<%= recaptcha_tags %>
+    	<div class="form-group">
+    		<%= recaptcha_tags %>
+    	</div>
 		<% end %>
 		<% if @question.new_record? %>
 			<%= f.hidden_field :category_id, :value => 0 %>
