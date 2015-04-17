@@ -22,7 +22,7 @@
     	</div>
 		<% end %>
 		<% if @question.new_record? %>
-			<%= f.hidden_field :category_id, :value => 0 %>
+			<%= f.hidden_field :category_id, :value => params[:id] %>
 		<% end %>
 		<div class="form-group">
 			<%= f.submit "Postavi pitanje", class: "form-control" %>

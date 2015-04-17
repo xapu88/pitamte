@@ -4,7 +4,6 @@ class PagesController < ApplicationController
   def home
   	@categories = Category.all
   	@questions = Question.all
-    @question = Question.new
   end
 
   def my_questions

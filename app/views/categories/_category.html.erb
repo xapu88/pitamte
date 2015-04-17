@@ -1,6 +1,12 @@
 <li>
-	<div class='row category' id="category-<%= category.id %>">
-		<hr />
-  	<span><%= category.title %></span><i class="fa fa-chevron-right"></i>
-  </div>
+	<%= link_to category do %>
+		<% if !current_page?(root_path) && (category.id == @category.id) %>
+		<div class='row category selected' id="category-<%= category.id %>">
+		<% else %>
+		<div class='row category' id="category-<%= category.id %>">
+		<% end %>
+			<hr />
+	  	<span><%= category.title %></span><i class="fa fa-chevron-right"></i>
+	  </div>
+	<% end %>
 </li>
