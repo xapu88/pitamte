@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
 
 	def show
 		@categories = Category.all
-		@questions = Question.where("category_id = ?", @category.id)
+		@questions = Question.where("category_id = ?", @category.id).page(params[:page])
 		@question = Question.new
 	end
 

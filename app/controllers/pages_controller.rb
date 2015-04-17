@@ -3,15 +3,15 @@ class PagesController < ApplicationController
 
   def home
   	@categories = Category.all
-  	@questions = Question.all
+  	@questions = Question.page(params[:page])
   end
 
   def my_questions
-    @questions = Question.where(user_id: current_user.id)
+    @questions = Question.where(user_id: current_user.id).page(params[:page])
   end
 
   def my_answers
-    @answers = Answer.where(user_id: current_user.id)
+    @answers = Answer.where(user_id: current_user.id).page(params[:page])
   end
 
   def contact

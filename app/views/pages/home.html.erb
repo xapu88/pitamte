@@ -32,12 +32,13 @@
 		    	<h4 class='questions-panel-header-category'>Sva pitanja</h4>
 		    </div>
 		  </div>
-		  <div class='row' id='question-form'>
-		  </div>
 		  <div class='row'>
 	      <ul class="questions">
 	        <%= render @questions %>
 	      </ul>
+	    </div>
+	    <div class="row">
+	    	<%= paginate @questions %>
 	    </div>
 		</div>
 		<div class='col-md-3'>

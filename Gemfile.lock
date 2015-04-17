@@ -253,6 +253,7 @@ DEPENDENCIES
   devise
   jbuilder (~> 2.0)
   jquery-rails
+  kaminari
   pg (= 0.17.1)
   pundit
   rails (= 4.2.0)

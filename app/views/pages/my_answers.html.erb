@@ -6,13 +6,14 @@
 		    	<h4>Lista svih mojih odgovora</h4>
 		    </div>
 		  </div>
-		  <div class='row' id='question-form'>
-		  </div>
 		  <div class='row'>
 		    <ul class="answers">
 		      <%= render @answers %>
 		    </ul>
 		  </div>
+		  <div class="row">
+	    	<%= paginate @answers %>
+	    </div>
 		</div>
 	</div>
 </div>
