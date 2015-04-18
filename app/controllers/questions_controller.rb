@@ -14,6 +14,10 @@ class QuestionsController < ApplicationController
 		if user_signed_in?
 			@question.user = current_user
 			if params[:sign] == "1"
+				if current_user.username.nil?
+					current_user.username = params[:username]
+					current_user.save!
+				end
 				@question.signature = current_user.username
 			end
 		end

@@ -9,6 +9,10 @@ class AnswersController < ApplicationController
 		@answer.question_id = @question.id
 		@answer.user = current_user
 		if params[:sign] == "1"
+			if current_user.username.nil?
+				current_user.username = params[:username]
+				current_user.save!
+			end
 			@answer.signature = current_user.username
 		end
 		if @answer.save

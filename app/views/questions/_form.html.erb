@@ -15,6 +15,9 @@
 			<div class="form-group check-box-row">
         <%= check_box_tag :sign %>
         <span>Potpiši se</span>
+        <% if current_user.username.nil? %>
+					<%= text_field_tag :username, nil, placeholder: "Korisničko ime" %>
+				<% end %>
       </div>
     <% else %>
     	<div class="form-group">
@@ -29,3 +32,14 @@
 		</div>
 	<% end %>
 </div>
+
+<script>
+	$("#sign").change(function() {
+    if(this.checked) {
+    	$("#username").addClass("visible");
+    }
+    else if(!this.checked) {
+    	$("#username").removeClass("visible");
+    }
+	});
+</script>

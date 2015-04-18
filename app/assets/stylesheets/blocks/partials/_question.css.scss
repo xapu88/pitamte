@@ -198,3 +198,12 @@
 .question-form {
 	margin-top: 15px;
 }
+
+#username {
+	display: none;
+	margin-top: 5px;
+}
+
+#username.visible {
+	display: block;
+}
