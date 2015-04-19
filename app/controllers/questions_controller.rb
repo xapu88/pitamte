@@ -62,6 +62,12 @@ class QuestionsController < ApplicationController
 		end
 	end
 
+	#def vote
+	#	value = params[:type] == "up" ? 1 : -1
+	#	@question.add_or_update_evaluation(:votes, value, current_user)
+	#	redirect_to :back, notice: "Hvala što glasate!"
+	#end
+
 	private
 		def question_params
 			params.require(:question).permit(:title, :content, :category_id)

@@ -4,8 +4,12 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   
   resources :categories, only: [:show]
-  resources :questions
-  resources :answers
+  resources :questions do
+    member { post :vote }
+  end
+  resources :answers do
+    member { post :vote }
+  end
 
   root 'pages#home'
   get 'my_questions' => 'pages#my_questions'

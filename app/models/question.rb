@@ -7,6 +7,8 @@ class Question < ActiveRecord::Base
   validates :title, presence: true, length: { minimum: 3, maximum: 50 }
   validates :content, length: { maximum: 300 }
 
+  #has_reputation :votes, source: :user, aggregated_by: :sum
+
   def owner?(user)
   	self.user_id == user.id
   end

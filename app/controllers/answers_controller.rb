@@ -1,8 +1,8 @@
 class AnswersController < ApplicationController
 	before_filter :get_question, only: [:create]
-	before_filter :get_answer, only: [:edit, :update, :destroy]
+	before_filter :get_answer, only: [:edit, :update, :destroy, :vote]
 	before_action :authenticate_user!
-	after_action :verify_authorized, except: [:index, :show, :new, :create]
+	after_action :verify_authorized, except: [:index, :show, :new, :create, :vote]
 
   def create
 		@answer = @question.answers.build(answer_params)
@@ -42,6 +42,12 @@ class AnswersController < ApplicationController
 		respond_to do |format|
 			format.js {}
 		end
+	end
+
+	def vote
+		value = params[:type] == "up" ? 1 : -1
+		@answer.add_or_update_evaluation(:votes, value, current_user)
+		redirect_to :back, notice: "Hvala što glasate!"
 	end
 
 	private

@@ -1,0 +1,38 @@
+.voting-status {
+	padding: 5px 0 0 10px;
+	border-left: 1px solid #ccc;
+	text-align: right;
+	span {
+		color: #777;
+		text-transform: uppercase;
+		font-size: 0.75em;
+	}
+}
+
+.voting-bar {
+	text-align: right;
+}
+
+.fa-thumbs-o-up {
+	color: #009999;
+	margin-top: 8px;
+	margin-left: 10px;
+}
+
+.fa-thumbs-up {
+	color: #009999;
+	margin-top: 8px;
+	margin-left: 10px;
+}
+
+.fa-thumbs-o-down {
+	color: #cc0000;
+	margin-top: 8px;
+	margin-left: 10px;
+}
+
+.fa-thumbs-down {
+	color: #cc0000;
+	margin-top: 8px;
+	margin-left: 10px;
+}

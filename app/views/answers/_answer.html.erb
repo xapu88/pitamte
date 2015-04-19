@@ -29,5 +29,24 @@
       <% end %>
       </span>
     </div>
+    <div class='col-sm-3 voting-status'>
+      <span>glasovi: <%= answer.reputation_for(:votes).to_i %></span>
+    </div>
+    <div class='col-sm-3 voting-bar'>
+      <%= link_to vote_answer_path(answer, type: "up"), method: "post" do %>
+        <% if current_user && current_user.voted_up?(answer) %>
+          <i class='fa fa-thumbs-up'></i>
+        <% else %>
+          <i class='fa fa-thumbs-o-up'></i>
+        <% end %>
+      <% end %>
+      <%= link_to vote_answer_path(answer, type: "down"), method: "post" do %>
+        <% if current_user && current_user.voted_down?(answer) %>
+          <i class='fa fa-thumbs-down'></i>
+        <% else %>
+          <i class='fa fa-thumbs-o-down'></i>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </li>
