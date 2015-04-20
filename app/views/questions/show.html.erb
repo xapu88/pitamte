@@ -30,7 +30,11 @@
 				<div class="row">
 		    	<%= paginate @answers %>
 		    </div>
-				<%= render 'answers/form' %>
+		    <% if user_signed_in? %>
+					<%= render 'answers/form' %>
+				<% else %>
+					<%= button_to "Prijavi se da odgovoriš", new_user_session_path, class: "signin-to-answer form-control" %>
+				<% end %>
 			</div>
 		</div>
 	</div>

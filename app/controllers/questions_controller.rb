@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
 	before_filter :get_category, only: [:create]
 	before_filter :get_question, except: [:create]
-	before_action :authenticate_user!, except: [:create]
+	before_action :authenticate_user!, except: [:create, :show]
 	after_action :verify_authorized, except: [:index, :show, :new, :create]
 
 	def show
