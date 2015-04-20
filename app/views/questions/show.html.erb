@@ -33,7 +33,7 @@
 		    <% if user_signed_in? %>
 					<%= render 'answers/form' %>
 				<% else %>
-					<%= button_to "Prijavi se da odgovoriš", new_user_session_path, class: "signin-to-answer form-control" %>
+					<%= button_to "Prijavi se da odgovoriš", new_user_session_path, method: "get", class: "signin-to-answer form-control" %>
 				<% end %>
 			</div>
 		</div>

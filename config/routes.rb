@@ -4,9 +4,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   
   resources :categories, only: [:show]
-  resources :questions do
-    member { post :vote }
-  end
+  resources :questions
   resources :answers do
     member { post :vote }
   end
