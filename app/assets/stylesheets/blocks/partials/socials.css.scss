@@ -13,12 +13,26 @@
 	}
 }
 
-.fb-share-button.socials-panel {
-	margin: 10px 5px 10px 10px;
-}
+.socials-panel-body {
+	.fb-share-button {
+		margin: 10px 5px 0 0;
+	}
 
-.fb-like.socials-panel {
-	margin: 10px 10px 10px 5px;
+	.fb-like {
+		margin: 10px 5px 0 0;
+	}
+
+	.socials-instr {
+		padding-top: 12px;
+		font-size: 0.9em;
+		font-weight: bold;
+		text-transform: uppercase;
+		color: #009999;
+		padding-right: 0;
+		span {
+			padding-left: 10px;
+		}
+	}	
 }
 
 .adds-panel {
