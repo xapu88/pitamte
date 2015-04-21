@@ -26,3 +26,8 @@
     <%= render "users/shared/links" %>
   </div>
 </div>
+<div class='row'>
+  <div class='col-md-4 col-md-offset-4'>
+    ili se uloguj preko <%= link_to "Facebook-a", user_omniauth_authorize_path(:facebook), :id => "sign_in_with_facebook" %>
+  </div>
+</div>

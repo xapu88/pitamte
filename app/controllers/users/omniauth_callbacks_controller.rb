@@ -1,10 +1,11 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  # You should configure your model like this:
-  # devise :omniauthable, omniauth_providers: [:twitter]
 
   # You should also create an action method in this controller like this:
-  # def twitter
-  # end
+  def facebook
+    @user = User.find_or_create_for_facebook(env["omniauth.auth"])
+    flash[:notice] = "Prijava putem Facebooka uspela!"
+    sign_in_and_redirect @user, :event => :authentication
+  end
 
   # More info at:
   # https://github.com/plataformatec/devise#omniauth

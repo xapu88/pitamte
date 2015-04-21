@@ -2,7 +2,8 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable,
+         :omniauthable, omniauth_providers: [:facebook]
 
   has_many :questions
   has_many :answers
@@ -26,5 +27,29 @@ class User < ActiveRecord::Base
   	else
   		return false
   	end
+  end
+
+  def self.find_or_create_for_facebook(response)
+    data = response['authResponse']
+    if user = User.find_by_facebook_id(data["userID"])
+      user
+    else # Create a user with a stub password.
+      user = User.new(:email => "facebook+#{data["userID"]}@pitamte.com", :password => Devise.friendly_token[0,20])
+      user.facebook_id = data["userID"]
+      user.confirm!
+      user
+    end
+  end
+
+  def display_name
+    if facebook_id
+      "FB korisnik: #{facebook_id})"
+    else
+      email
+    end
+  end
+
+  def to_s
+    "#{display_name}"
   end
 end
