@@ -2,7 +2,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   # You should also create an action method in this controller like this:
   def facebook
-    @user = User.find_or_create_for_facebook(env["omniauth.auth"])
+    @user = User.from_omniauth(request.env["omniauth.auth"])
     flash[:notice] = "Prijava putem Facebooka uspela!"
     sign_in_and_redirect @user, :event => :authentication
   end

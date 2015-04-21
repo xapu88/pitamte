@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable
+         :omniauthable, :omniauth_providers => [:facebook]
 
   has_many :questions
   has_many :answers
@@ -29,15 +29,12 @@ class User < ActiveRecord::Base
   	end
   end
 
-  def self.find_or_create_for_facebook(response)
-    data = response['extra']['user_hash']
-    if user = User.find_by_facebook_id(data["id"])
-      user
-    else # Create a user with a stub password.
-      user = User.new(:email => "facebook+#{data["id"]}@pitamte.com", :password => Devise.friendly_token[0,20])
-      user.facebook_id = data["id"]
-      user.confirm!
-      user
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, facebook_id: auth.uid).first_or_create do |user|
+      user.provider = auth.provider
+      user.facebook_id = auth.uid
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0,20]
     end
   end
 
