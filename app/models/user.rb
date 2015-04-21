@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
   	end
   end
 
-  def find_or_create_for_facebook(uid, data, token)
+  def self.find_or_create_for_facebook(uid, data, token)
     binding = User.find_binding("facebook", uid)
 
     if binding
