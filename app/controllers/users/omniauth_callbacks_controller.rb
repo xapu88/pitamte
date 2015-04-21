@@ -4,7 +4,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def facebook
     @user = User.from_omniauth(request.env["omniauth.auth"])
     flash[:notice] = "Prijava putem Facebooka uspela!"
-    sign_in_and_redirect @user, :event => :authentication
+    sign_in_and_redirect @user
   end
 
   # More info at:
