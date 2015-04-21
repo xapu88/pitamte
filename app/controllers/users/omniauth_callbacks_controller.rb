@@ -3,7 +3,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # You should also create an action method in this controller like this:
   def facebook
     @user = User.from_omniauth(request.env["omniauth.auth"])
-    flash[:notice] = "Prijava putem Facebooka uspela!"
     sign_in_and_redirect @user
   end
 
@@ -20,10 +19,10 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   #   super
   # end
 
-  # protected
+  protected
 
   # The path used when omniauth fails
-  # def after_omniauth_failure_path_for(scope)
-  #   super(scope)
-  # end
+  def after_omniauth_failure_path_for(scope)
+    super(scope)
+  end
 end
