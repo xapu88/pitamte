@@ -29,34 +29,16 @@ class User < ActiveRecord::Base
   	end
   end
 
-  def self.find_or_create_for_facebook(uid, data, token)
-    binding = User.find_binding("facebook", uid)
-
-    if binding
-      user = binding.user
-      binding.refresh_token(token)
-      return user
-    elsif user = User.find_by_email(data["email"])
-      user.bind_service("facebook", uid, token)
-      return user
-    else
-      user = User.new_from_provider_data("facebook", uid, data, token)
-      if user.save(:validate => false)
-        user.bind_service("facebook", uid, token)
-        return user
-      else
-        return nil
-      end
+  def self.find_or_create_for_facebook(response)
+    data = response['authResponse']
+    if user = User.find_by_facebook_id(data["userID"])
+      user
+    else # Create a user with a stub password.
+      user = User.new(:email => "facebook+#{data["userID"]}@pitamte.com", :password => Devise.friendly_token[0,20])
+      user.facebook_id = data["userID"]
+      user.confirm!
+      user
     end
-
-  end
-
-  def new_from_provider_data(provider, uid, data, token)
-    user = User.new
-    user.email = data["email"]
-    user.name = data["nickname"] ? data ["nickname"] : data["name"]      
-    user.password = Devise.friendly_token[0,20]
-    return user
   end
 
   def display_name
