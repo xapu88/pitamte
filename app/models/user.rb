@@ -30,12 +30,12 @@ class User < ActiveRecord::Base
   end
 
   def self.find_or_create_for_facebook(response)
-    data = response['authResponse']
-    if user = User.find_by_facebook_id(data["userID"])
+    data = response['extra']['user_hash']
+    if user = User.find_by_facebook_id(data["id"])
       user
     else # Create a user with a stub password.
-      user = User.new(:email => "facebook+#{data["userID"]}@pitamte.com", :password => Devise.friendly_token[0,20])
-      user.facebook_id = data["userID"]
+      user = User.new(:email => "facebook+#{data["id"]}@pitamte.com", :password => Devise.friendly_token[0,20])
+      user.facebook_id = data["id"]
       user.confirm!
       user
     end
