@@ -31,10 +31,10 @@ class User < ActiveRecord::Base
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, facebook_id: auth.uid).first_or_create do |user|
-      user.provider = auth.provider
-      user.facebook_id = auth.uid
-      user.email = auth.info.email
-      user.password = Devise.friendly_token[0,20]
+      self.provider = auth.provider
+      self.facebook_id = auth.uid
+      self.email = auth.info.email
+      self.password = Devise.friendly_token[0,20]
     end
   end
 
