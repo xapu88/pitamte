@@ -7,6 +7,12 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     sign_in_and_redirect @user
   end
 
+  def twitter
+    @user = User.from_omniauth(request.env["omniauth.auth"])
+    flash[:notice] = "Prijava preko Twitter-a uspela!"
+    sign_in_and_redirect @user
+  end
+
   # More info at:
   # https://github.com/plataformatec/devise#omniauth
 

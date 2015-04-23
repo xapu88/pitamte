@@ -25,8 +25,12 @@
 
     <%= render "users/shared/links" %>
     <hr />
-    <span class='socials-login-explain'>ili se prijavi putem</span> <%= link_to user_omniauth_authorize_path(:facebook), :id => "sign_in_with_facebook" do %>
-      <i class="fa fa-facebook-official fa-3x"></i>
+    <span class='socials-login-explain'>ili se prijavi putem</span>
+    <%= link_to user_omniauth_authorize_path(:facebook), :id => "sign_in_with_facebook" do %>
+      <i class="fa fa-facebook-square fa-3x"></i>
+    <% end %>
+    <%= link_to user_omniauth_authorize_path(:twitter), :id => "sign_in_with_twitter" do %>
+      <i class="fa fa-twitter-square fa-3x"></i>
     <% end %>
   </div>
 </div>

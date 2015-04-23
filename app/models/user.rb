@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable and :timeoutable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable, :omniauth_providers => [:facebook]
+         :omniauthable, :omniauth_providers => [:facebook, :twitter]
 
   has_many :questions
   has_many :answers
@@ -30,19 +30,6 @@ class User < ActiveRecord::Base
   end
 
   def self.from_omniauth(auth)
-    #email_is_verified = auth.info.email && (auth.info.verified || auth.info.verified_email)
-    #email = auth.info.email if email_is_verified
-    #user = User.where(:email => email).first if email
-
-    #if user.nil?
-    #  user = User.new(
-    #    username: auth.extra.raw_info.name,
-    #    #username: auth.info.nickname || auth.uid,
-    #    email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
-    #    password: Devise.friendly_token[0,20]
-    #  )
-    #  user.save!
-    #nd
     where(provider: auth.provider, facebook_id: auth.uid).first_or_create do |user|
       user.provider = auth.provider
       user.facebook_id = auth.uid
