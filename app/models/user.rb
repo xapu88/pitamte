@@ -46,7 +46,7 @@ class User < ActiveRecord::Base
     where(provider: auth.provider, facebook_id: auth.uid).first_or_create do |user|
       user.provider = auth.provider
       user.facebook_id = auth.uid
-      user.username = auth.name
+      user.username = auth.extra.raw_info.name
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
     end
@@ -54,7 +54,7 @@ class User < ActiveRecord::Base
 
   def display_name
     if facebook_id
-      "FB korisnik: #{username})"
+      "#{username})"
     else
       email
     end
