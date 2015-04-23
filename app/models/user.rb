@@ -32,9 +32,14 @@ class User < ActiveRecord::Base
   def self.from_omniauth(auth)
     where(provider: auth.provider, facebook_id: auth.uid).first_or_create do |user|
       user.provider = auth.provider
-      user.facebook_id = auth.uid
+      user.facebook_id = auth.uid      
+      user.username = auth.extra.raw_info.username
       user.username = auth.extra.raw_info.name
-      user.email = auth.info.email
+      if provider == "twitter"
+        user.email = "twitter.#{auth.uid}@pitamte.com"
+      else
+        user.email = auth.info.email
+      end
       user.password = Devise.friendly_token[0,20]
     end
   end
