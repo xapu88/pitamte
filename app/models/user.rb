@@ -54,7 +54,7 @@ class User < ActiveRecord::Base
 
   def display_name
     if facebook_id
-      "#{username})"
+      "#{username}"
     else
       email
     end

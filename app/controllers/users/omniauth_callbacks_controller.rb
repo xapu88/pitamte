@@ -3,7 +3,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # You should also create an action method in this controller like this:
   def facebook
     @user = User.from_omniauth(request.env["omniauth.auth"])
-    sign_in_and_redirect @user
+    sign_in_and_redirect @user, note: "Prijava preko Facebook-a uspela!"
   end
 
   # More info at:
