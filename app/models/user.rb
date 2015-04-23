@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   has_many :answers
   has_many :evaluations, class_name: "ReputationSystem::Evaluation", as: :source
 
-  validates :username, length: { maximum: 20 }
+  validates :username, length: { maximum: 30 }
 
   def voted_up?(answer)
   	evals = evaluations.where(target_type: answer.class, target_id: answer.id)
