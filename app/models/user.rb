@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
       user.facebook_id = auth.uid      
       user.username = auth.extra.raw_info.username
       user.username = auth.extra.raw_info.name
-      if provider == "twitter"
+      if auth.provider == "twitter"
         user.email = "twitter.#{auth.uid}@pitamte.com"
       else
         user.email = auth.info.email
