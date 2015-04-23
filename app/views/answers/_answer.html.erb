@@ -17,10 +17,7 @@
   	<div class='col-sm-12 question-content'>
   		<span><%= answer.content %></span>
   	</div>
-    <div class='col-sm-2 question-share'>
-      <div class="fb-share-button" data-href="https://pitamte.herokuapp.com/questions/<%=answer.question.id%>#answer-<%= answer.id %>" data-layout="button"></div>
-      </div>
-    <div class='col-sm-4 question-author'>
+    <div class='col-sm-6 question-author'>
       <span>
       <% if answer.signature.nil? %>
         anonimno

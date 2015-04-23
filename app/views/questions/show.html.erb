@@ -9,9 +9,12 @@
 		    	<h4 class='questions-panel-header-category'><%= @question.category.title %></h4>
 		    </div>
 		  </div>
-		  <div class='row question'>
-		  	<div class='col-md-12 question-created-at margin-top-middle'>
+		  <div class='row question margin-top-middle'>
+		  	<div class='col-md-4 question-created-at'>
 					<span><%= @question.created_at.strftime("%d.%m.%Y. %H:%M") %></span>
+				</div>
+				<div class='col-md-4 question-category'>
+					<span>[<%= @question.category.title %>]</span>
 				</div>
 		  	<div class='col-md-12 question-title'>
 					<span><%= @question.title %></span>
@@ -19,6 +22,21 @@
 				<div class='col-md-12 question-content'>
 					<span><%= @question.content %></span>
 				</div>
+				<div class='col-sm-2 question-share'>
+		      <iframe class="fb-share-button" width="100px" height="20px" frameborder="0" allowtransparency="true" scrolling="no" src="https://www.facebook.com/plugins/share_button.php?app_id=380442578823911&amp;href=http://www.pitamte.com/questions/<%=@question.id%>&amp;layout=button" style="border: none; visibility: visible; width: 100px; height: 20px;"></iframe>
+		    </div>
+		    <div class='col-sm-4 question-author'>
+		      <span>
+		      <% if @question.signature.nil? %>
+		        anonimno
+		      <% elsif !@question.signature.nil? %>
+		        <%= @question.signature %>
+		      <% end %>
+		      </span>
+		    </div>
+		    <div class='col-sm-6 question-answers'>
+		      <span>Odgovora: <%= @question.answers.count %></span>
+		    </div>
 			</div>
 			<div class='row'>
 				<div class='col-md-12'>
