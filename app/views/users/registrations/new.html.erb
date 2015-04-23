@@ -22,5 +22,9 @@
     <% end %>
 
     <%= render "users/shared/links" %>
+    <hr />
+    <span class='socials-login-explain'>ili se prijavi putem</span> <%= link_to user_omniauth_authorize_path(:facebook), :id => "sign_in_with_facebook" do %>
+      <i class="fa fa-facebook-official fa-3x"></i>
+    <% end %>
   </div>
 </div>
