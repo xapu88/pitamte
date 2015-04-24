@@ -1,14 +1,20 @@
 .subheader {
 	background-color: #009999;
-	color: #fff;
-	height: 180px;
-	padding: 20px;
+	height: 250px;
+}
 
-	h1 {
-		font-size: 4em;
+.site-caption {
+	margin-top: -230px;
+	margin-bottom: 25px;
+	color: #fff;
+	.caption-section {
+		padding-top: 50px;
+	}
+	.caption {
+		font-size: 3.6em;
 	}
 
-	h4 {
+	.subcaption {
 		font-size: 1.5em;
 		text-align: center;
 		opacity: 0.75;
