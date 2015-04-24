@@ -13,8 +13,6 @@ class QuestionsController < ApplicationController
 		@question = @category.questions.build(question_params)
 		if user_signed_in?
 			@question.user = current_user
-			@question.created_at = 2.hours.from_now
-			@question.updated_at = 2.hours.from_now
 			if params[:sign] == "1"
 				if current_user.username.nil?
 					current_user.username = params[:username]
@@ -49,7 +47,6 @@ class QuestionsController < ApplicationController
 	def update
 		@question.update(question_params)
 		authorize @question
-		@question.updated_at = 2.hours.from_now
 		if @question.save
 			redirect_to my_questions_path
 		else

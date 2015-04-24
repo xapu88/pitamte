@@ -8,8 +8,6 @@ class AnswersController < ApplicationController
 		@answer = @question.answers.build(answer_params)
 		@answer.question_id = @question.id
 		@answer.user = current_user
-		@answer.created_at = 2.hours.from_now
-		@answer.updated_at = 2.hours.from_now
 		if params[:sign] == "1"
 			if current_user.username.nil?
 				current_user.username = params[:username]
@@ -31,7 +29,6 @@ class AnswersController < ApplicationController
 	def update
 		@answer.update(answer_params)
 		authorize @answer
-		@answer.updated_at = 2.hours.from_now
 		if @answer.save
 			redirect_to my_answers_path
 		else
