@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html prefix="og: http://ogp.me/ns#">
 <head>
   <%= favicon_link_tag %>
   <title><%= full_title(yield(:title)) %></title>
+  <meta property="og:title" content="PitamTe ono što Google ne zna." />
+  <meta property="og:type" content="question" />
+  <meta property="og:description" content="Odaberite kategoriju i postavite pitanje - sačekajte odgovore i ocenite najbolji." />
+  <meta property="og:image" content="http://i.imgur.com/sDEdPTs.png" />
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <meta property="og:image" content="http://www.pitamte.com/assets/pitamte-logo-a62bed6591fbd3c8c5237ef3922d9843.png" />
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
     </script>
