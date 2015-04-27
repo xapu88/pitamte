@@ -2,10 +2,8 @@
 <html prefix="og: http://ogp.me/ns#">
 <head>
   <%= favicon_link_tag %>
-  <% metamagic site: "PitamTe", title: [:site, :title], separator: " — ", description: "Korisnici pitaju, korisnici odgovaraju.", keywords: %w(ko kako zasto da li ima kome cemu sta čemu šta zašto gde može koliko koliki kolika zbog čega cega moze koja koji koje čija cija kakav kakva) %>
-  <meta property="og:title" content="PitamTe ono što Google ne zna." />
+  <%= metamagic site: "PitamTe", title: [:site, :title], separator: " — ", description: "Korisnici pitaju, korisnici odgovaraju.", keywords: %w(ko kako zasto da li ima kome cemu sta čemu šta zašto gde može koliko koliki kolika zbog čega cega moze koja koji koje čija cija kakav kakva) %>
   <meta property="og:type" content="question" />
-  <meta property="og:description" content="Odaberite kategoriju i postavite pitanje - sačekajte odgovore i ocenite najbolji." />
   <meta property="og:image" content="http://i.imgur.com/sDEdPTs.png" />
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
