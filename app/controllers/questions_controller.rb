@@ -81,6 +81,6 @@ class QuestionsController < ApplicationController
 		end
 
 		def get_category
-			@category = Category.find(params[:question][:category_id])
+			@category = Category.friendly.find(params[:question][:category_id])
 		end
 end
