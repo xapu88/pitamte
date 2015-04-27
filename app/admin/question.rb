@@ -12,4 +12,25 @@ ActiveAdmin.register Question do
     column :approved
     actions
   end
+
+  controller do
+    before_action :get_question, only: [:edit, :update]
+
+    def create
+      create! do |format|
+        format.html { redirect_to admin_questions_path }
+      end
+    end
+
+    def update
+      update! do |format|
+        format.html { redirect_to admin_questions_path }
+      end
+    end
+
+    private
+      def get_question
+        @question = Question.friendly.find(params[:id])
+      end
+  end
 end

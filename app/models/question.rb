@@ -8,6 +8,12 @@ class Question < ActiveRecord::Base
   validates :content, length: { maximum: 300 }
 
   #has_reputation :votes, source: :user, aggregated_by: :sum
+  extend FriendlyId
+  friendly_id :title, use: [:slugged, :history]
+
+  def should_generate_new_friendly_id?
+    title_changed?
+  end
 
   def owner?(user)
   	self.user_id == user.id

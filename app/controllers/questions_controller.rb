@@ -7,6 +7,9 @@ class QuestionsController < ApplicationController
 	def show
 		@answer = Answer.new
 		@answers = @question.answers.page(params[:page])
+		if request.path != question_path(@question)
+			redirect_to @question, status: :moved_permanently
+		end
 	end
 
 	def create
@@ -74,7 +77,7 @@ class QuestionsController < ApplicationController
 		end
 
 		def get_question
-			@question = Question.find(params[:id])
+			@question = Question.friendly.find(params[:id])
 		end
 
 		def get_category

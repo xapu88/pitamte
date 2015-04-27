@@ -3,16 +3,16 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   
-  resources :categories, only: [:show]
-  resources :questions
+  resources :categories, only: [:show], path: 'kategorije'
+  resources :questions, path: 'pitanja'
   resources :answers do
     member { post :vote }
   end
 
   root 'pages#home'
-  get 'my_questions' => 'pages#my_questions'
-  get 'my_answers' => 'pages#my_answers'
-  get 'contact' => 'pages#contact'
-  get 'about' => 'pages#about'
-  get 'agreements' => 'pages#agreements'
+  get 'moja_pitanja' => 'pages#my_questions', as: 'my_questions'
+  get 'moji_odgovori' => 'pages#my_answers', as: 'my_answers'
+  get 'kontakt' => 'pages#contact', as: 'contact'
+  get 'o_nama' => 'pages#about', as: 'about'
+  get 'uslovi_koriscenja' => 'pages#agreements', as: 'agreements'
 end
