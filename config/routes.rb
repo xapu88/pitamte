@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   
   resources :categories, only: [:show], path: 'kategorije'
   resources :questions, path: 'pitanja'
-  resources :answers do
+  resources :answers, path: 'odgovori' do
     member { post :vote }
   end
 
