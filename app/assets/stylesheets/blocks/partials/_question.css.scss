@@ -14,6 +14,12 @@
 	}
 	.question {
 		margin-bottom: 15px;
+		.question-avatar {
+			padding-right: 0;
+		}
+		.avatar-placeholder {
+			color: #009999;
+		}
 	}
 	.questions-panel-header {
 		border: 1px solid #009999;
@@ -69,11 +75,7 @@
 			}
 		}
 		.question-author {
-			margin-top: 5px;
 			span {
-				text-transform: uppercase;
-				text-align: center;
-				font-size: 0.75em;
 				color: #777;
 			}
 		}

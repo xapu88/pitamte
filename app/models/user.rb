@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
 
   validates :username, length: { maximum: 30 }
 
+  mount_uploader :avatar, AvatarUploader
+
   def voted_up?(answer)
   	evals = evaluations.where(target_type: answer.class, target_id: answer.id)
   	if !evals.empty?
@@ -35,6 +37,7 @@ class User < ActiveRecord::Base
       user.facebook_id = auth.uid      
       user.username = auth.extra.raw_info.username
       user.username = auth.extra.raw_info.name
+      user.avatar = auth.extra.raw_info.image
       if auth.provider == "twitter"
         user.email = "twitter.#{auth.uid}@pitamte.com"
       else
