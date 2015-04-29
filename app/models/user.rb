@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
       user.provider = auth.provider
       user.facebook_id = auth.uid      
       user.username = auth.extra.raw_info.name
-      user.remote_avatar_url = auth.info.image
+      user.avatar = URI.parse(auth.info.image)
       if auth.provider == "twitter"
         user.email = "twitter.#{auth.uid}@pitamte.com"
       else
