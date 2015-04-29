@@ -40,7 +40,7 @@ class User < ActiveRecord::Base
       if auth.provider == "twitter"
         user.email = "twitter.#{auth.uid}@pitamte.com"
       else
-        user.email = auth.info.email
+        user.email = "facebook.#{auth.uid}@pitamte.com"
       end
       user.password = Devise.friendly_token[0,20]
     end
