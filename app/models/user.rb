@@ -35,7 +35,6 @@ class User < ActiveRecord::Base
     where(provider: auth.provider, facebook_id: auth.uid).first_or_create do |user|
       user.provider = auth.provider
       user.facebook_id = auth.uid      
-      user.username = auth.extra.raw_info.username
       user.username = auth.extra.raw_info.name
       user.remote_avatar_url = auth.info.image
       if auth.provider == "twitter"
