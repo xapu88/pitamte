@@ -3,7 +3,7 @@
 		<hr />
     <div class='col-sm-2 question-avatar'>
       <% if question.user.nil? || question.user.avatar_url.nil? || question.signature.nil? %>
-        <i class='fa fa-user fa-4x avatar-placeholder'></i>
+        <span class='avatar-placeholder'><i class='fa fa-user fa-3x'></i></span>
       <% else %> 
         <%= image_tag question.user.avatar_url(:medium).to_s %>
       <% end %>
