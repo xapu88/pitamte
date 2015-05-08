@@ -18,9 +18,11 @@ before_filter :configure_account_update_params, only: [:update]
   # end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    super
+    @uploader = resource.avatar
+    @uploader.success_action_redirect = about_path
+  end
 
   # DELETE /resource
   # def destroy
