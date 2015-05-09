@@ -28,3 +28,22 @@
     color: #222;
   }
 }
+
+@media (max-width: 991px) {
+  .navbar {
+    min-height: 150px;
+    font-size: 4em;
+    button {
+      min-height: 130px;
+      min-width: 130px;
+      border-color: #009999;
+    }
+    .navbar-toggle .icon-bar {
+      width: 90px;
+      height: 12px;
+      border-radius: 6px;
+      margin: 15px 0 15px 10px;
+      background-color: #009999;
+    }
+  }
+}
