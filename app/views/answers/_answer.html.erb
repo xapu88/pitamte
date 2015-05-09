@@ -1,49 +1,75 @@
 <li id="answer-<%= answer.id %>">
 	<div class='row question'>
 		<hr />
-		<div class='col-sm-10 question-created-at'>
-  		<span><%= answer.created_at.strftime("%d.%m.%Y. %H:%M") %></span>
-  	</div>
-    <% if user_signed_in? && answer.owner?(current_user) %>
-      <div class='col-sm-2 question-actions'>
-        <%= link_to edit_answer_path(answer) do %>
-          <i class='fa fa-edit'></i>
+    <div class='col-sm-2 question-avatar'>
+      <% if answer.user.nil? || answer.user.avatar_url.nil? || answer.signature.nil? %>
+        <span class='avatar-placeholder'><i class='fa fa-user fa-3x'></i></span>
+      <% else %> 
+        <%= image_tag answer.user.avatar_url(:medium).to_s %>
+      <% end %>
+    </div>
+
+    <div class='col-sm-10 question-body'>
+      <div class='row'>
+
+        <div class='col-sm-7 question-author'>
+          <span>
+          <% if answer.signature.nil? %>
+            anonimno
+          <% elsif !answer.signature.nil? %>
+            <%= answer.signature %>
+          <% end %>
+          </span>
+        </div>
+    		<div class='col-sm-5 question-created-at'>
+      		<span><%= answer.created_at.strftime("%d.%m.%Y. %H:%M") %></span>
+      	</div>
+      	<div class='col-sm-12 question-content'>
+      		<span><strong><%= answer.content %></strong></span>
+      	</div>
+        <div class='col-sm-6 voting-bar'>
+          <%= link_to vote_answer_path(answer, type: "up"), method: "post" do %>
+            <% if current_user && current_user.voted_up?(answer) %>
+              <i class='fa fa-thumbs-up'></i>
+            <% else %>
+              <i class='fa fa-thumbs-o-up'></i>
+            <% end %>
+          <% end %>
+          <%= link_to vote_answer_path(answer, type: "down"), method: "post" do %>
+            <% if current_user && current_user.voted_down?(answer) %>
+              <i class='fa fa-thumbs-down'></i>
+            <% else %>
+              <i class='fa fa-thumbs-o-down'></i>
+            <% end %>
+          <% end %>
+        </div>
+        <div class='col-sm-6 voting-status'>
+          <span>glasova: <%= answer.reputation_for(:votes).to_i %></span>
+        </div>
+        <% if user_signed_in? && answer.owner?(current_user) %>
+          <div class='col-sm-10'>
+            <span class='question-actions'>
+              (moj odgovor)
+            </span>
+          </div>
+          <div class='col-sm-1'>
+            <span class='question-actions'>
+              <%= link_to edit_answer_path(answer) do %>
+                <i class='fa fa-edit'></i>
+              <% end %>
+            </span>
+          </div>
+          <div class='col-sm-1'>
+            <span class='question-actions'>
+              <%= link_to answer, remote: true, method: :delete, data: { confirm: 'Da li ste sigurni? Odgovor će biti trajno obrisan.' } do %>
+                <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <% end %>
+            </span>
+          </div>
         <% end %>
-        <%= link_to answer, remote: true, method: :delete, data: { confirm: 'Da li ste sigurni? Odgovor će biti trajno obrisan.' } do %>
-          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <% end %>
+
       </div>
-    <% end %>
-  	<div class='col-sm-12 question-content'>
-  		<span><%= answer.content %></span>
-  	</div>
-    <div class='col-sm-6 question-author'>
-      <span>
-      <% if answer.signature.nil? %>
-        anonimno
-      <% elsif !answer.signature.nil? %>
-        <%= answer.signature %>
-      <% end %>
-      </span>
     </div>
-    <div class='col-sm-3 voting-status'>
-      <span>glasovi: <%= answer.reputation_for(:votes).to_i %></span>
-    </div>
-    <div class='col-sm-3 voting-bar'>
-      <%= link_to vote_answer_path(answer, type: "up"), method: "post" do %>
-        <% if current_user && current_user.voted_up?(answer) %>
-          <i class='fa fa-thumbs-up'></i>
-        <% else %>
-          <i class='fa fa-thumbs-o-up'></i>
-        <% end %>
-      <% end %>
-      <%= link_to vote_answer_path(answer, type: "down"), method: "post" do %>
-        <% if current_user && current_user.voted_down?(answer) %>
-          <i class='fa fa-thumbs-down'></i>
-        <% else %>
-          <i class='fa fa-thumbs-o-down'></i>
-        <% end %>
-      <% end %>
-    </div>
+
   </div>
 </li>
