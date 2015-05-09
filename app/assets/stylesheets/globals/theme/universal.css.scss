@@ -60,3 +60,9 @@ textarea {
 h1.page-caption {
 	color: #009999;
 }
+
+@media (max-width: 991px) {
+	.container {
+		width: 100%;
+	}
+}
