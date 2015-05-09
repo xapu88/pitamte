@@ -23,13 +23,16 @@
 
 @media (max-width: 991px) {
 	.site-caption {
+		.caption-section {
+			padding-top: 30px;
+		}
 		.caption {
 			margin-left: -30px;
 			font-size: 3em;
 		}
 
 		.subcaption {
-			margin-left: -30px;
+			margin-left: -20px;
 			font-size: 1.2em;
 		}
 	}
