@@ -20,16 +20,6 @@
           <%= question.signature %>
         <% end %>
         </span>
-        <% if user_signed_in? && question.owner?(current_user) %>
-          <span class='question-actions'>
-            <%= link_to edit_question_path(question) do %>
-              <i class='fa fa-edit'></i>
-            <% end %>
-            <%= link_to question, remote: true, method: :delete, data: { confirm: 'Da li ste sigurni? Pitanje će biti trajno obrisano.' } do %>
-              <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <% end %>
-          </span>
-        <% end %>
       </div>
   		<div class='col-sm-5 question-created-at'>
     		<span><%= question.created_at.strftime("%d.%m.%Y. %H:%M") %>
@@ -58,6 +48,27 @@
           <% end %>
         <% end %>
       </div>
+      <% if user_signed_in? && question.owner?(current_user) %>
+        <div class='col-sm-10'>
+          <span class='question-actions'>
+            (moje pitanje)
+          </span>
+        </div>
+        <div class='col-sm-1'>
+          <span class='question-actions'>
+            <%= link_to edit_question_path(question) do %>
+              <i class='fa fa-edit'></i>
+            <% end %>
+          </span>
+        </div>
+        <div class='col-sm-1'>
+          <span class='question-actions'>
+            <%= link_to question, remote: true, method: :delete, data: { confirm: 'Da li ste sigurni? Pitanje će biti trajno obrisano.' } do %>
+              <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <% end %>
+          </span>
+        </div>
+      <% end %>
 
       </div>
     </div>
