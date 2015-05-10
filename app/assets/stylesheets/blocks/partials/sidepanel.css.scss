@@ -65,3 +65,13 @@
 		padding: 3px 0 0 0;
 	}
 }
+
+@media (max-width: 991px) {
+	.categories-panel ul li div {
+		height: 150px;
+
+	}
+	.categories-panel	hr {
+		margin-bottom: 113px;
+	}
+}
