@@ -68,10 +68,18 @@
 
 @media (max-width: 991px) {
 	.categories-panel ul li div {
-		height: 150px;
-
+		position: relative;
+		height: 170px;
+		font-size: 1.5em;
+		span {
+			padding-left: 0;
+			position: absolute;
+    	bottom: 5px;
+    	width: 100%;
+    	text-align: center;
+		}
 	}
 	.categories-panel	hr {
-		margin-bottom: 113px;
+		margin-bottom: 70px;
 	}
 }
