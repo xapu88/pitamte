@@ -28,7 +28,10 @@
     		color: #009999;
     		text-decoration: none;
     	}
-    	i {
+    	.category-icon {
+    		margin: -50px 0 0 45px;
+    	}
+    	.category-arrow {
 				float: right;
 				padding-top: 3px;
 				display: none;
@@ -37,7 +40,7 @@
 			&:hover {
 				font-weight: bold;
 				cursor:pointer;
-				i {
+				.category-arrow {
 					display: block;
 				}
 			}
