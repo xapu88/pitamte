@@ -2,7 +2,7 @@
 <div class='container'>
 	<div class='row'>
 		
-		<div class='col-md-3 col-sm-4'>
+		<div class='col-md-3 col-xs-3'>
 			<div class='panel panel-default categories-panel'>
 			  <div class="panel-body">
 			  	<h4>Kategorije</h4>
@@ -11,7 +11,7 @@
 			    		<%= link_to root_path do %>
 								<div class='row category' id="category-0">
 									<hr />
-							  	<span>Sva pitanja</span><i class="fa fa-chevron-right category-arrow"></i>
+							  	<span>Sva pitanja</span><i class="fa fa-question-circle fa-5x hidden-md hidden-lg category-icon-all"></i><i class="fa fa-chevron-right category-arrow"></i>
 							  </div>
 							<% end %>
 						</li>
@@ -20,12 +20,12 @@
 			  </div>
 			</div>
 		</div>
-		<div class='col-md-6 col-sm-8 questions-panel'>
+		<div class='col-md-6 col-xs-9 questions-panel'>
 	    <div class='row questions-panel-header'>
-		    <div class='col-md-3 col-sm-4 questions-panel-header-title'>
+		    <div class='col-md-3 col-xs-4 questions-panel-header-title'>
 		    	<h4>Pitanja</h4>
 		    </div>
-		    <div class='col-md-9 col-sm-8'>
+		    <div class='col-md-9 col-xs-8'>
 		    	<h4 class='questions-panel-header-category'><%= @category.title %></h4>
 		    </div>
 		  </div>
@@ -41,7 +41,7 @@
 	    	<%= paginate @questions %>
 	    </div>
 		</div>
-		<div class='col-md-3'>
+		<div class='col-md-3 hidden-sm hidden-xs'>
 			<div class="socials-panel-header">
 				<h4>Društvene mreže</h4>
 			</div>

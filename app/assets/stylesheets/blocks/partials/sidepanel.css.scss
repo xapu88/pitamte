@@ -51,7 +51,7 @@
 				background-color: #009999;
 				color: #fff;
 				font-weight: bold;
-				i {
+				.category-arrow {
 					display: block;
 					color: #fff;
 				}
@@ -74,7 +74,7 @@
 
 @media (max-width: 991px) {
 	.categories-panel h4 {
-		padding-left: 45px;
+		padding-left: 48px;
 	}
 	.categories-panel ul li div {
 		position: relative;

@@ -62,6 +62,9 @@ h1.page-caption {
 }
 
 @media (max-width: 991px) {
+	body {
+		margin-top: 100px;
+	}
 	.container {
 		width: 100%;
 	}
