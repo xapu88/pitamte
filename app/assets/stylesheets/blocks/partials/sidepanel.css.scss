@@ -29,7 +29,10 @@
     		text-decoration: none;
     	}
     	.category-icon {
-    		margin: -50px 0 0 45px;
+    		margin: -50px 0 0 48px;
+    	}
+    	.category-icon-all {
+    		margin: -50px 0 0 60px;
     	}
     	.category-arrow {
 				float: right;
@@ -70,6 +73,9 @@
 }
 
 @media (max-width: 991px) {
+	.categories-panel h4 {
+		padding-left: 45px;
+	}
 	.categories-panel ul li div {
 		position: relative;
 		height: 170px;
