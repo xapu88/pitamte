@@ -1,7 +1,7 @@
 <li id="question-<%= question.id %>">
 	<div class='row question'>
 		<hr />
-    <div class='col-sm-2 question-avatar'>
+    <div class='col-xs-2 question-avatar'>
       <% if question.user.nil? || question.user.avatar_url.nil? || question.signature.nil? %>
         <span class='avatar-placeholder'><i class='fa fa-user fa-3x'></i></span>
       <% else %> 
@@ -9,7 +9,7 @@
       <% end %>
     </div>
 
-    <div class='col-sm-10 question-body'>
+    <div class='col-xs-10 question-body'>
       <div class='row'>
 
       <div class='col-sm-7 question-author'>

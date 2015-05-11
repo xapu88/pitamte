@@ -231,3 +231,30 @@
 .signin-to-answer {
 	margin-top: 20px;
 }
+
+@media (max-width: 991px) {
+	.questions-panel {
+		div {
+			.question-title {
+				span {
+					font-size: 2.25em;
+				}
+			}
+			.question-content {
+				span {
+					font-size: 1.75em;
+				}
+			}
+			.question-author {
+				span {
+					font-size: 1.75em;
+				}
+			}
+			.question {
+				.question-body {
+					margin-left: -25px;
+				}
+			}
+		}
+	}
+}
