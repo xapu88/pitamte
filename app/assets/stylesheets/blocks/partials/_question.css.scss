@@ -235,6 +235,11 @@
 @media (max-width: 991px) {
 	.questions-panel {
 		div {
+			.question {
+				.question-body {
+					margin-left: -25px;
+				}
+			}
 			.question-title {
 				span {
 					font-size: 2.25em;
@@ -255,10 +260,8 @@
 					font-size: 1.75em;
 				}
 			}
-			.question {
-				.question-body {
-					margin-left: -25px;
-				}
+			.question-share {
+				margin-top: 17px;
 			}
 			.question-answers {
 				font-size: 2em;
