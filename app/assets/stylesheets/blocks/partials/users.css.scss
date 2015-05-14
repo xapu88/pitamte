@@ -73,6 +73,10 @@
 	}
 }
 
+.personal-links {
+	padding-left: 12px;
+}
+
 .personal-link {
 	background-color: #009999;
 	color: #fff;
@@ -82,7 +86,8 @@
 	font-size: 3em;
 	text-align: center;
 	text-transform: uppercase;
-	padding: 20px;
+	padding-top: 20px;
+	padding-bottom: 20px;
 	span {
 		i {
 			margin-right: 10px;
