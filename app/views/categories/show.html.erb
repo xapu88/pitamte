@@ -1,5 +1,20 @@
 <% meta title: "Kategorije — " + @category.title %>
 <div class='container'>
+	<% if user_signed_in? %>
+		<div class='row hidden-md hidden-lg'>
+			<div class='col-xs-6 personal-link'>
+	      <span>
+	        <i class='fa fa-question-circle'></i><%= link_to "Moja pitanja", my_questions_path %>
+	      </span>
+	    </div>
+	    <div class='col-xs-6 personal-link'>
+	      <span>
+	        <i class='fa fa-exclamation-circle'></i><%= link_to "Moji odgovori", my_answers_path %>
+	      </span>
+	    </div>
+		</div>
+	<% end %>
+	
 	<div class='row'>
 		
 		<div class='col-md-3 col-xs-3'>

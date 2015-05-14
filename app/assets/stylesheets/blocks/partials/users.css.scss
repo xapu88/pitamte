@@ -72,3 +72,24 @@
 		border: solid 3px #009999;
 	}
 }
+
+.personal-link {
+	background-color: #009999;
+	color: #fff;
+	border-top: 3px solid #fff;
+	border-bottom: 3px solid #fff;
+	border-left: 3px solid #fff;
+	font-size: 3em;
+	text-align: center;
+	text-transform: uppercase;
+	padding: 20px;
+	span {
+		i {
+			margin-right: 10px;
+		}
+		a {
+			color: #fff;
+			text-decoration: none;
+		}
+	}
+}

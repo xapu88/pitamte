@@ -11,7 +11,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Početna", root_path %></li>
         <% if user_signed_in? %>
-          <li>
+          <li class="hidden-xs hidden-sm">
             <div class="dropdown">
               <div id="dropdownUser" data-toggle="dropdown" aria-expanded="true">
                 <%= current_user %>
@@ -41,6 +41,12 @@
                 </li>
               </ul>
             </div>
+          </li>
+          <li class="hidden-md hidden-lg">
+            <%= link_to "Detalji profila", edit_user_registration_path %>
+          </li>
+          <li class="hidden-md hidden-lg">
+            <%= link_to "Odjavi se", destroy_user_session_path, :method => :delete %>
           </li>
         <% else %>
           <li><%= link_to "Registruj se", new_user_registration_path %></li>
