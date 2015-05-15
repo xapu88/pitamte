@@ -1,7 +1,12 @@
+html {
+	height: 100%;
+}
+
 body {
   margin: 0;
   padding: 50px 0 0 0;
   height: 100%;
+  position: relative;
 }
 
 #page-wrapper {
@@ -10,7 +15,7 @@ body {
 }
 
 #page-content {
-	padding-bottom: 110px;
+	padding-bottom: 80px;
 }
 
 section {
