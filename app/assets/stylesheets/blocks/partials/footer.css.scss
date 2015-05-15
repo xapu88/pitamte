@@ -74,6 +74,13 @@ footer ul li {
         color: #222;
       }
     }
+    a:visited {
+      color: #fff;
+      text-decoration: none;
+      &:hover {
+        color: #222;
+      }
+    }
     small {
       font-size: 0.65em;
       margin-left: 100px;
