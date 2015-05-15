@@ -20,7 +20,7 @@
           </div>
           <div class='col-sm-4 question-actions delete'>
             <span>
-              <%= link_to answer, remote: true, method: :delete, data: { confirm: 'Da li ste sigurni? Odgovor će biti trajno obrisan.' } do %>
+              <%= link_to answer, remote: true, method: :delete, data: { confirm: 'Da li ste sigurni? Odgovor će biti trajno obrisan.' }, class: "delete-button" do %>
                 obriši
               <% end %>
             </span>
