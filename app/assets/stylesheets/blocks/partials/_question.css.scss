@@ -54,8 +54,27 @@
 			}
 		}
 		.question-actions {
+			padding: 3px 5px 3px 5px;
+			background-color: #fffacd;
+			font-size: 0.75em;
+			text-transform: uppercase;
+			text-align: center;
 			i {
 				margin-top: 4px;
+			}
+		}
+		.question-actions.edit {
+			a {
+				color: #cc0000;
+				text-decoration: none;
+				font-weight: bold;
+			}
+		}
+		.question-actions.delete {
+			a {
+				color: #cc0000;
+				text-decoration: none;
+				font-weight: bold;
 			}
 		}
 		.question-title {

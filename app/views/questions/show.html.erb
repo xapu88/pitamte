@@ -25,7 +25,21 @@ meta title: "Pitanja — " + @question.title,
 		      <% end %>
 		    </div>
 		    <div class='col-sm-10 question-body'>
-		      <div class='row'>
+		      <% if user_signed_in? && @question.owner?(current_user) %>
+		        <div class='col-sm-3 col-sm-offset-1 question-actions'>
+		          <span>moje</span>
+		        </div>
+		        <div class='col-sm-4 question-actions edit'>
+		          <span><%= link_to "izmeni", edit_question_path(@question) %></span>
+		        </div>
+		        <div class='col-sm-4 question-actions delete'>
+		          <span>
+		            <%= link_to @question, remote: true, method: :delete, data: { confirm: 'Da li ste sigurni? Pitanje će biti trajno obrisano.' } do %>
+		              obriši
+		            <% end %>
+		          </span>
+		        </div>
+		      <% end %>
 
 		      <div class='col-sm-7 question-author'>
 		        <span>
@@ -52,28 +66,7 @@ meta title: "Pitanja — " + @question.title,
 			    <div class='col-sm-6 question-answers'>
 			      <span>Odgovora: <%= @question.answers.count %></span>
 			    </div>
-			    <% if user_signed_in? && @question.owner?(current_user) %>
-		        <div class='col-sm-10'>
-		          <span class='question-actions'>
-		            (moje pitanje)
-		          </span>
-		        </div>
-		        <div class='col-sm-1'>
-		          <span class='question-actions'>
-		            <%= link_to edit_question_path(@question) do %>
-		              <i class='fa fa-edit'></i>
-		            <% end %>
-		          </span>
-		        </div>
-		        <div class='col-sm-1'>
-		          <span class='question-actions'>
-		            <%= link_to @question, remote: true, method: :delete, data: { confirm: 'Da li ste sigurni? Pitanje će biti trajno obrisano.' } do %>
-		              <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		            <% end %>
-		          </span>
-		        </div>
-		      <% end %>
-		     </div>
+		    </div>
 			</div>
 			<div class='row'>
 				<div class='col-md-12'>

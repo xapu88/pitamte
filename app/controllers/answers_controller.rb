@@ -30,7 +30,7 @@ class AnswersController < ApplicationController
 		@answer.update(answer_params)
 		authorize @answer
 		if @answer.save
-			redirect_to my_answers_path
+			redirect_to question_path(@answer.question)
 		else
 			redirect_to edit_answer_path(@answer)
 		end

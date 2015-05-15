@@ -51,7 +51,7 @@ class QuestionsController < ApplicationController
 		@question.update(question_params)
 		authorize @question
 		if @question.save
-			redirect_to my_questions_path
+			redirect_to question_path(@question)
 		else
 			redirect_to edit_question_path(@question)
 		end
