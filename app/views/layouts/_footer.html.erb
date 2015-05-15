@@ -1,14 +1,41 @@
 <footer class="footer">
   <div class='container'>
-    <small>
-      © 2015 PitamTe Team - All rights reserved 
-    </small>
-    <nav>
-      <ul>
-        <li><%= link_to "Uslovi korišćenja", agreements_path %></li>
-        <li><%= link_to "O nama", about_path %></li>
-        <li><%= link_to "Kontakt", contact_path %></li>
-      </ul>
-    </nav>
+    <div class="row">
+      <div class="col-xs-2 col-xs-offset-2 hidden-md hidden-lg">
+        <div class="col-xs-12">
+          <%= link_to user_omniauth_authorize_path(:facebook), :id => "sign_in_with_facebook" do %>
+            <i class="fa fa-facebook-square fa-2x"></i>
+          <% end %>
+        </div>
+        <div class="col-xs-12">
+          <%= link_to user_omniauth_authorize_path(:twitter), :id => "sign_in_with_twitter" do %>
+            <i class="fa fa-twitter-square fa-2x"></i>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-xs-8 hidden-md hidden-lg agreement-links">
+        <div class="col-xs-12">
+          <%= link_to "Uslovi korišćenja", agreements_path %>
+        </div>
+        <div class="col-xs-12">
+          <%= link_to "O nama", about_path %>
+        </div>
+        <div class="col-xs-12">
+          <%= link_to "Kontakt", contact_path %>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <small>
+          © 2015 PitamTe Team - All rights reserved 
+        </small>
+        <nav class="hidden-xs hidden-sm">
+          <ul>
+            <li><%= link_to "Uslovi korišćenja", agreements_path %></li>
+            <li><%= link_to "O nama", about_path %></li>
+            <li><%= link_to "Kontakt", contact_path %></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
   </div>
 </footer>
