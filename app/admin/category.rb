@@ -2,7 +2,7 @@ ActiveAdmin.register Category do
   permit_params :title, :mobile_icon
 
   controller do
-  	before_action :get_category, only: [:edit, :update]
+  	before_action :get_category, only: [:edit, :update, :destroy]
 
   	def create
 	    create! do |format|
