@@ -28,6 +28,12 @@ ActiveAdmin.register Question do
       end
     end
 
+    def destroy
+      destroy! do |format|
+        format.html { redirect_to admin_questions_path }
+      end
+    end
+
     private
       def get_question
         @question = Question.friendly.find(params[:id])
