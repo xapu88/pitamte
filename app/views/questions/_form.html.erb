@@ -16,7 +16,7 @@
         <%= check_box_tag :sign %>
         <span>Potpiši se</span>
         <% if current_user.username.nil? %>
-					<%= text_field_tag :username, nil, placeholder: "Korisničko ime" %>
+					<%= text_field_tag :username, nil, placeholder: "Korisničko ime", class: "form-control" %>
 				<% end %>
       </div>
     <% else %>

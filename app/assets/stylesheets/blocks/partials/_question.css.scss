@@ -257,6 +257,21 @@
 	margin-top: 20px;
 }
 
+
+.form-control::-webkit-input-placeholder { /* WebKit browsers */
+	color: #ccc;
+}
+.form-control:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	color: #ccc;
+}
+.form-control::-moz-placeholder { /* Mozilla Firefox 19+ */
+	color: #ccc;
+}
+.form-control:-ms-input-placeholder { /* Internet Explorer 10+ */
+	color: #ccc;
+}
+
+
 @media (max-width: 991px) {
 	.questions-panel {
 		div {
@@ -308,8 +323,27 @@
 			}
 		}
 		form input[type=text] {
-			font-size: 3em;
-			height: 65px;
+			font-size: 2.5em;
+			height: 70px;
+		}
+		textarea {
+			font-size: 2.5em;
+			height: 120px;
+		}
+		.check-box-row {
+			span {
+				font-size: 2.5em;
+			}
+		}
+		input[type=checkbox] {
+			height: 25px;
+			width: 25px;
+		}
+		input[type=submit] {
+			font-size: 2.5em;
+			padding: 7px 0 7px 0;
+			line-height: 26px;
+			height: 54px;
 		}
 	}
 }
