@@ -1,5 +1,5 @@
 ActiveAdmin.register Question do
-  permit_params :title, :content, :category_id, :approved
+  permit_params :title, :content, :user, :category_id, :approved
 
 
   index do
@@ -24,12 +24,6 @@ ActiveAdmin.register Question do
 
     def update
       update! do |format|
-        format.html { redirect_to admin_questions_path }
-      end
-    end
-
-    def destroy
-      destroy! do |format|
         format.html { redirect_to admin_questions_path }
       end
     end
