@@ -345,9 +345,15 @@
 		}
 		input[type=submit] {
 			font-size: 2.5em;
-			padding: 7px 0 7px 0;
+			padding: 10px 0 10px 0;
 			line-height: 26px;
-			height: 54px;
+			height: 60px;
+		}
+		select {
+			font-size: 2.5em;
+			padding: 10px 0 10px 0;
+			line-height: 26px;
+			height: 60px;
 		}
 	}
 	.questions-panel.show-question {
