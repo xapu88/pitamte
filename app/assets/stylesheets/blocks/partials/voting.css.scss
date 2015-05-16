@@ -16,23 +16,29 @@
 .fa-thumbs-o-up {
 	color: #009999;
 	margin-top: 8px;
-	margin-left: 10px;
+	margin-left: 15px;
 }
 
 .fa-thumbs-up {
 	color: #009999;
 	margin-top: 8px;
-	margin-left: 10px;
+	margin-left: 15px;
 }
 
 .fa-thumbs-o-down {
 	color: #cc0000;
 	margin-top: 8px;
-	margin-left: 10px;
+	margin-left: 15px;
 }
 
 .fa-thumbs-down {
 	color: #cc0000;
 	margin-top: 8px;
-	margin-left: 10px;
+	margin-left: 15px;
+}
+
+@media (max-width: 991px) {
+	.voting-bar a i {
+		margin-left: 50px;
+	}
 }

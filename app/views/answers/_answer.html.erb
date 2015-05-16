@@ -38,22 +38,26 @@
     		<div class='col-sm-5 question-created-at'>
       		<span><%= answer.created_at.strftime("%d.%m.%Y. %H:%M") %></span>
       	</div>
-      	<div class='col-sm-12 question-content'>
+      	<div class='col-sm-12 question-title'>
       		<span><strong><%= answer.content %></strong></span>
       	</div>
         <div class='col-sm-6 voting-bar'>
           <%= link_to vote_answer_path(answer, type: "up"), method: "post" do %>
             <% if current_user && current_user.voted_up?(answer) %>
-              <i class='fa fa-thumbs-up'></i>
+              <i class='fa fa-thumbs-up hidden-xs hidden-sm'></i>
+              <i class='fa fa-thumbs-up fa-2x hidden-md hidden-lg'></i>
             <% else %>
-              <i class='fa fa-thumbs-o-up'></i>
+              <i class='fa fa-thumbs-o-up hidden-xs hidden-sm'></i>
+              <i class='fa fa-thumbs-o-up fa-2x hidden-md hidden-lg'></i>
             <% end %>
           <% end %>
           <%= link_to vote_answer_path(answer, type: "down"), method: "post" do %>
             <% if current_user && current_user.voted_down?(answer) %>
-              <i class='fa fa-thumbs-down'></i>
+              <i class='fa fa-thumbs-down hidden-xs hidden-sm'></i>
+              <i class='fa fa-thumbs-down fa-2x hidden-md hidden-lg'></i>
             <% else %>
-              <i class='fa fa-thumbs-o-down'></i>
+              <i class='fa fa-thumbs-o-down hidden-xs hidden-sm'></i>
+              <i class='fa fa-thumbs-o-down fa-2x hidden-md hidden-lg'></i>
             <% end %>
           <% end %>
         </div>

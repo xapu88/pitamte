@@ -321,6 +321,9 @@
 			.question-actions {
 				font-size: 1.75em;
 			}
+			.voting-status{
+				font-size: 2em;
+			}
 		}
 		form input[type=text] {
 			font-size: 2.5em;
@@ -344,6 +347,12 @@
 			padding: 7px 0 7px 0;
 			line-height: 26px;
 			height: 54px;
+		}
+	}
+	.questions-panel.show-question {
+		padding-left: 30px;
+		.question-body {
+
 		}
 	}
 }
