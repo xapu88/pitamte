@@ -14,7 +14,7 @@ ActiveAdmin.register Question do
   end
 
   controller do
-    before_action :get_question, only: [:edit, :update]
+    before_action :get_question, only: [:edit, :update, :destroy]
 
     def create
       create! do |format|
