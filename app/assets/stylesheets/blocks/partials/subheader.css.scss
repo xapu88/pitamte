@@ -21,7 +21,7 @@
 	}
 }
 
-@media (max-width: 991px) {
+@media (min-width: 768px) and (max-width: 990px) {
 	.site-caption {
 		.caption-section {
 			padding-top: 20px;
@@ -34,6 +34,30 @@
 		.subcaption {
 			margin-left: -40px;
 			font-size: 1.5em;
+		}
+	}
+}
+
+@media (max-width: 767px) {
+	.subheader {
+		height: 140px;
+	}
+	.site-caption {
+		margin-top: -120px;
+		.caption-section {
+			padding-top: 10px;
+		}
+		.caption {
+			margin-left: -12px;
+			font-size: 1.34em;
+		}
+
+		.subcaption {
+			margin-left: -12px;
+			font-size: 1.1em;
+		}
+		.subcaption-row {
+			padding-top: 10px;
 		}
 	}
 }
