@@ -272,7 +272,7 @@
 }
 
 
-@media (max-width: 991px) {
+@media (min-width: 768px) and (max-width: 990px) {
 	.questions-panel {
 		div {
 			.question {
@@ -316,6 +316,111 @@
 				}
 				i {
 					margin-top: 7px;
+				}
+			}
+			.question-actions {
+				font-size: 1.75em;
+			}
+			.voting-status{
+				font-size: 2em;
+			}
+		}
+		form input[type=text] {
+			font-size: 2.5em;
+			height: 70px;
+		}
+		textarea {
+			font-size: 2.5em;
+			height: 120px;
+		}
+		.check-box-row {
+			span {
+				font-size: 2.5em;
+			}
+		}
+		input[type=checkbox] {
+			height: 40px;
+			width: 40px;
+			margin-right: 15px;
+		}
+		input[type=submit] {
+			font-size: 2.5em;
+			padding: 10px 0 10px 0;
+			line-height: 26px;
+			height: 60px;
+		}
+		select {
+			font-size: 2.5em;
+			padding: 10px 0 10px 0;
+			line-height: 26px;
+			height: 60px;
+		}
+		.form-group {
+			padding-top: 20px;
+		}
+	}
+	.questions-panel.show-question {
+		padding-left: 30px;
+	}
+}
+
+@media (max-width: 767px) {
+	.questions-panel {
+		padding-right: 5px;
+		h4 {
+			font-size: 0.7em;
+			margin-top: 13px;
+			margin-bottom: 10px;
+		}
+		div {
+			.question {
+				.question-body {
+					padding-left: 5px;
+					padding-right: 0;
+				}
+				.question-avatar {
+					padding-left: 0px;
+				}
+			}
+			.question-title {
+				span {
+					font-size: 1.25em;
+				}
+			}
+			.question-content {
+				span {
+					font-size: 1em;
+				}
+			}
+			.question-author {
+				span {
+					font-size: 0.8em;
+				}
+			}
+			.question-created-at {
+				span {
+					font-size: 0.8em;
+				}
+			}
+			.question-share {
+				margin-top: 2px;
+			}
+			.question-answers {
+				font-size: 0.8em;
+				padding-left: 5px;
+				padding-right: 5px;
+			}
+			.question-answers-link {
+				font-size: 0.8em;
+				padding-left: 5px;
+				span {
+					padding-left: 5px;
+				}
+				a {
+					margin-left: 0;
+				}
+				i {
+					margin-top: 1px;
 				}
 			}
 			.question-actions {

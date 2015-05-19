@@ -28,7 +28,7 @@
         </div>
       <% end %>
 
-      <div class='col-sm-7 question-author'>
+      <div class='col-sm-7 col-xs-6 question-author'>
         <span>
         <% if question.signature.nil? %>
           anonimno
@@ -37,23 +37,23 @@
         <% end %>
         </span>
       </div>
-  		<div class='col-sm-5 question-created-at'>
+  		<div class='col-sm-5 col-xs-6 question-created-at'>
     		<span><%= question.created_at.strftime("%d.%m.%Y. %H:%M") %>
       </span>
       </div>
-    	<div class='col-sm-12 question-title'>
+    	<div class='col-sm-12 col-xs-12 question-title'>
     		<span><%= question.title %></span>
     	</div>
-    	<div class='col-sm-12 question-content'>
+    	<div class='col-sm-12 col-xs-12 question-content'>
     		<span><%= truncate(question.content, length: 100) %></span>
     	</div>
-      <div class='col-sm-4 question-share'>
+      <div class='col-sm-4 col-xs-4 question-share'>
         <iframe class="fb-share-button" width="100px" height="20px" frameborder="0" allowtransparency="true" scrolling="no" src="https://www.facebook.com/plugins/share_button.php?app_id=380442578823911&amp;href=http://www.pitamte.com/pitanja/<%=question.slug%>&amp;layout=button" style="border: none; visibility: visible; width: 100px; height: 20px;"></iframe>
       </div>
-      <div class='col-sm-4 question-answers'>
+      <div class='col-sm-4 col-xs-4 question-answers'>
         <span>Odgovora: <%= question.answers.count %></span>
       </div>
-      <div class='col-sm-4 question-answers-link'>
+      <div class='col-sm-4 col-xs-4 question-answers-link'>
         <%= link_to question do %>
           <% if question.answers.count == 0 %>
             <span class='unanswered'>odgovori</span>
