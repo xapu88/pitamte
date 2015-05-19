@@ -13,13 +13,13 @@
       <div class='row'>
 
       <% if user_signed_in? && question.owner?(current_user) %>
-        <div class='col-sm-3 col-sm-offset-1 question-actions'>
+        <div class='col-sm-3 col-xs-3 col-sm-offset-1 col-xs-offset-1 question-actions'>
           <span>moje</span>
         </div>
-        <div class='col-sm-4 question-actions edit'>
+        <div class='col-sm-4 col-xs-4 question-actions edit'>
           <span><%= link_to "izmeni", edit_question_path(question) %></span>
         </div>
-        <div class='col-sm-4 question-actions delete'>
+        <div class='col-sm-4 col-xs-4 question-actions delete'>
           <span>
             <%= link_to question, remote: true, method: :delete, data: { confirm: 'Da li ste sigurni? Pitanje će biti trajno obrisano.' }, class: "delete-button" do %>
               obriši

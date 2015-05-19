@@ -57,7 +57,7 @@ footer ul li {
 }
 
 
-@media (max-width: 991px) {
+@media (min-width: 768px) and (max-width: 990px) {
   footer {
     height: 350px;
     position: absolute;
@@ -94,5 +94,45 @@ footer ul li {
 
   #page-content {
     padding-bottom: 370px;
+  }
+}
+
+@media (max-width: 767px) {
+  footer {
+    height: 220px;
+    position: absolute;
+    bottom: 0px;
+    background-color: #009999;
+    color: #fff;
+    margin-top: -220px;
+    padding-top: 15px;
+    clear:both;
+    font-size: 1.8em;
+    a, a:link {
+      text-decoration: none;
+      color: #fff;
+      &:hover {
+        color: #222;
+      }
+    }
+    a:visited {
+      color: #fff;
+      text-decoration: none;
+      &:hover {
+        color: #222;
+      }
+    }
+    small {
+      font-size: 0.65em;
+      margin-left: 30px;
+      padding-top: 30px;
+    }
+    .agreement-links {
+      border-left: 1px solid #fff;
+    }
+  }
+
+  #page-content {
+    padding-bottom: 230px;
   }
 }

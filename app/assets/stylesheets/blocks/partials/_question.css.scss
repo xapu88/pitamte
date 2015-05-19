@@ -367,6 +367,9 @@
 @media (max-width: 767px) {
 	.questions-panel {
 		padding-right: 20px;
+		.questions-panel-header {
+			margin-top: 5px;
+		}
 		h4 {
 			font-size: 0.7em;
 			margin-top: 13px;
@@ -379,12 +382,12 @@
 					padding-right: 0;
 				}
 				.question-avatar {
-					padding-left: 0px;
+					padding-left: 0;
 				}
 			}
 			.question-title {
 				span {
-					font-size: 1.25em;
+					font-size: 1.2em;
 				}
 			}
 			.question-content {
@@ -393,6 +396,7 @@
 				}
 			}
 			.question-author {
+				margin-top: -4px;
 				span {
 					font-size: 0.8em;
 				}
@@ -424,47 +428,52 @@
 				}
 			}
 			.question-actions {
-				font-size: 1.75em;
+				font-size: 0.8em;
 			}
 			.voting-status{
 				font-size: 2em;
 			}
 		}
 		form input[type=text] {
-			font-size: 2.5em;
-			height: 70px;
+			font-size: 1em;
+			height: 30px;
 		}
 		textarea {
-			font-size: 2.5em;
-			height: 120px;
+			font-size: 1em;
+			height: 60px;
 		}
 		.check-box-row {
 			span {
-				font-size: 2.5em;
+				font-size: 1em;
 			}
 		}
 		input[type=checkbox] {
-			height: 40px;
-			width: 40px;
-			margin-right: 15px;
+			height: 12px;
+			width: 12px;
+			margin-right: 8px;
 		}
 		input[type=submit] {
-			font-size: 2.5em;
-			padding: 10px 0 10px 0;
-			line-height: 26px;
-			height: 60px;
+			font-size: 1.1em;
+			padding: 5px 0 5px 0;
+			line-height: 12px;
+			height: 30px;
 		}
 		select {
-			font-size: 2.5em;
+			font-size: 1.5em;
 			padding: 10px 0 10px 0;
 			line-height: 26px;
 			height: 60px;
 		}
 		.form-group {
-			padding-top: 20px;
+			padding-top: 5px;
 		}
 	}
 	.questions-panel.show-question {
-		padding-left: 30px;
+		padding-left: 10px;
+		padding-right: 10px;
+		.questions-panel-header {
+			margin-left: -5px;
+			margin-right: -5px;
+		}
 	}
 }
