@@ -1,7 +1,7 @@
 <li id="answer-<%= answer.id %>">
 	<div class='row question'>
 		<hr />
-    <div class='col-sm-2 question-avatar'>
+    <div class='col-sm-2 col-xs-2 question-avatar'>
       <% if answer.user.nil? || answer.user.avatar_url.nil? || answer.signature.nil? %>
         <span class='avatar-placeholder'><i class='fa fa-user fa-3x'></i></span>
       <% else %> 
@@ -9,16 +9,16 @@
       <% end %>
     </div>
 
-    <div class='col-sm-10 question-body'>
+    <div class='col-sm-10 col-xs-10 question-body'>
       <div class='row'>
         <% if user_signed_in? && answer.owner?(current_user) %>
-          <div class='col-sm-3 col-sm-offset-1 question-actions'>
+          <div class='col-sm-3 col-sm-offset-1 col-xs-3 col-xs-offset-1 question-actions'>
             <span>moje</span>
           </div>
-          <div class='col-sm-4 question-actions edit'>
+          <div class='col-sm-4 col-xs-4 question-actions edit'>
             <span><%= link_to "izmeni", edit_answer_path(answer) %></span>
           </div>
-          <div class='col-sm-4 question-actions delete'>
+          <div class='col-sm-4 col-xs-4 question-actions delete'>
             <span>
               <%= link_to answer, remote: true, method: :delete, data: { confirm: 'Da li ste sigurni? Odgovor će biti trajno obrisan.' }, class: "delete-button" do %>
                 obriši
@@ -26,7 +26,7 @@
             </span>
           </div>
         <% end %>
-        <div class='col-sm-7 question-author'>
+        <div class='col-sm-7 col-xs-7 question-author'>
           <span>
           <% if answer.signature.nil? %>
             anonimno
@@ -35,13 +35,13 @@
           <% end %>
           </span>
         </div>
-    		<div class='col-sm-5 question-created-at'>
+    		<div class='col-sm-5 col-xs-5 question-created-at'>
       		<span><%= answer.created_at.strftime("%d.%m.%Y. %H:%M") %></span>
       	</div>
-      	<div class='col-sm-12 question-content'>
+      	<div class='col-sm-12 col-xs-12 question-content'>
       		<span><strong><%= answer.content %></strong></span>
       	</div>
-        <div class='col-sm-6 voting-bar'>
+        <div class='col-sm-6 col-xs-6 voting-bar'>
           <%= link_to vote_answer_path(answer, type: "up"), method: "post" do %>
             <% if current_user && current_user.voted_up?(answer) %>
               <i class='fa fa-thumbs-up hidden-xs hidden-sm'></i>
@@ -61,7 +61,7 @@
             <% end %>
           <% end %>
         </div>
-        <div class='col-sm-6 voting-status'>
+        <div class='col-sm-6 col-xs-6 voting-status'>
           <span>glasova: <%= answer.reputation_for(:votes).to_i %></span>
         </div>
 

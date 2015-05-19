@@ -149,53 +149,53 @@
 @media (max-width: 767px) {
 	.user-form {
 		h2, span, a {
-			font-size: 2.5em;
+			font-size: 1.2em;
 		}
 		form input[type=email] {
-			font-size: 2.5em;
-			height: 70px;
+			font-size: 1.5em;
+			height: 50px;
 		}
 
 		form input[type=password] {
-			font-size: 2.5em;
-			height: 70px;
+			font-size: 1.5em;
+			height: 50px;
 		}
 
 		form input[type=text] {
-			font-size: 2.5em;
-			height: 70px;
+			font-size: 1.5em;
+			height: 50px;
 		}
 		form input[type=submit], form input[type=file] {
-			font-size: 2.5em;
-			padding: 10px 0 10px 0;
-			line-height: 26px;
-			height: 60px;
+			font-size: 1.5em;
+			padding: 5px 0 5px 0;
+			line-height: 18px;
+			height: 50px;
 		}
 		.check-box-row {
 			label {
-				font-size: 2.5em;
+				font-size: 1.5em;
 			}
 		}
 		input[type=checkbox] {
-			height: 40px;
-			width: 40px;
-			margin-right: 15px;
+			height: 18px;
+			width: 18px;
+			margin-right: 8px;
 		}
 		.form-group {
-			padding-top: 20px;
+			padding-top: 5px;
 		}
 		hr {
-			margin-top: 50px;
+			margin-top: 30px;
 		}
 		.socials-login-explain {
-			margin-top: 25px;
+			margin-top: 15px;
+			margin-left: 15px;
 		}
 	}
 
 	.personal-links {
 		padding-left: 4px;
 		padding-right: 5px;
-		margin-top: 20px;
 	}
 
 	.personal-link {
@@ -204,11 +204,11 @@
 		border-top: 1px solid #fff;
 		border-bottom: 1px solid #fff;
 		border-left: 1px solid #fff;
-		font-size: 1em;
+		font-size: 1.2em;
 		text-align: center;
 		text-transform: uppercase;
-		padding-top: 5px;
-		padding-bottom: 5px;
+		padding-top: 12px;
+		padding-bottom: 12px;
 		span {
 			i {
 				margin-right: 10px;
@@ -218,5 +218,8 @@
 				text-decoration: none;
 			}
 		}
+	}
+	.home-content .personal-links {
+		margin-top: 20px;
 	}
 }

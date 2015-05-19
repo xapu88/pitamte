@@ -1,5 +1,20 @@
 <% meta title: "Moji odgovori" %>
 <div class='container'>
+	<% if user_signed_in? %>
+		<div class='row hidden-md hidden-lg personal-links'>
+			<div class='col-xs-6 personal-link'>
+	      <span>
+	        <i class='fa fa-question-circle'></i><%= link_to "Moja pitanja", my_questions_path %>
+	      </span>
+	    </div>
+	    <div class='col-xs-6 personal-link'>
+	      <span>
+	        <i class='fa fa-exclamation-circle'></i><%= link_to "Moji odgovori", my_answers_path, disabled: true %>
+	      </span>
+	    </div>
+		</div>
+	<% end %>
+
 	<div class='row my-questions-content'>
 		<div class='col-md-6 col-md-offset-3 col-sm-12 questions-panel show-question my-questions'>
 		  <div class='row questions-panel-header'>
