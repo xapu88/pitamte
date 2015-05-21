@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   before_action :authenticate_user!, only: [:my_questions, :my_answers]
 
   def home
-  	@categories = Category.all
+  	@categories = Category.order(:position).all
   	@questions = Question.page(params[:page])
   end
 

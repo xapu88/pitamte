@@ -1,5 +1,5 @@
 ActiveAdmin.register Category do
-  permit_params :title, :mobile_icon
+  permit_params :title, :mobile_icon, :position
 
   controller do
   	before_action :get_category, only: [:edit, :update, :destroy]
