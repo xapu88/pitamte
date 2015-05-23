@@ -22,6 +22,8 @@ class QuestionsController < ApplicationController
 					current_user.save!
 				end
 				@question.signature = current_user.username
+			else
+				@question.signature = current_user.uid
 			end
 		end
 		respond_to do |format|

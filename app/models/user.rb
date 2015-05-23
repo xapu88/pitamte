@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
 
   mount_uploader :avatar, AvatarUploader
 
+  before_create :randomize_uid
+
   def voted_up?(answer)
   	evals = evaluations.where(target_type: answer.class, target_id: answer.id)
   	if !evals.empty?
@@ -57,4 +59,12 @@ class User < ActiveRecord::Base
   def to_s
     "#{display_name}"
   end
+
+  private
+    def randomize_uid
+      begin
+        self.uid = "#"+SecureRandom.random_number(1_000_000).to_s.rjust(7, '0')
+      end while User.where(uid: self.uid).exists?
+    end
+
 end

@@ -2,7 +2,7 @@
 	<div class='row question'>
 		<hr />
     <div class='col-sm-2 col-xs-2 question-avatar'>
-      <% if answer.user.nil? || answer.user.avatar_url.nil? || answer.signature.nil? %>
+      <% if answer.user.nil? || answer.user.avatar_url.nil? || (answer.signature != answer.user.username) %>
         <span class='avatar-placeholder'><i class='fa fa-user fa-3x'></i></span>
       <% else %> 
         <%= image_tag answer.user.avatar_url(:medium).to_s %>
@@ -27,13 +27,7 @@
           </div>
         <% end %>
         <div class='col-sm-7 col-xs-7 question-author'>
-          <span>
-          <% if answer.signature.nil? %>
-            anonimno
-          <% elsif !answer.signature.nil? %>
-            <%= answer.signature %>
-          <% end %>
-          </span>
+          <span><%= answer.signature %></span>
         </div>
     		<div class='col-sm-5 col-xs-5 question-created-at'>
       		<span><%= answer.created_at.strftime("%d.%m.%Y. %H:%M") %></span>

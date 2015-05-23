@@ -2,7 +2,7 @@
 	<div class='row question'>
 		<hr />
     <div class='col-xs-2 question-avatar'>
-      <% if question.user.nil? || question.user.avatar_url.nil? || question.signature.nil? %>
+      <% if question.user.nil? || question.user.avatar_url.nil? || (question.signature != question.user.username) %>
         <span class='avatar-placeholder'><i class='fa fa-user fa-3x'></i></span>
       <% else %> 
         <%= image_tag question.user.avatar_url(:medium).to_s %>
@@ -31,7 +31,7 @@
       <div class='col-sm-7 col-xs-6 question-author'>
         <span>
         <% if question.signature.nil? %>
-          anonimno
+          neregistrovan
         <% elsif !question.signature.nil? %>
           <%= question.signature %>
         <% end %>

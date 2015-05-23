@@ -14,6 +14,8 @@ class AnswersController < ApplicationController
 				current_user.save!
 			end
 			@answer.signature = current_user.username
+		else
+			@answer.signature = current_user.uid
 		end
 		if @answer.save
 			redirect_to question_path(@question.id), note: "Odgovor uspesno postavljen!"
