@@ -18,7 +18,7 @@ meta title: "Pitanja — " + @question.title,
 		  </div>
 		  <div class='row question margin-top-middle'>
 		  	<div class='col-sm-1 col-md-2 col-xs-2 question-avatar'>
-		      <% if @question.user.nil? || @question.user.avatar_url.nil? || (question.signature != question.user.username) %>
+		      <% if @question.user.nil? || @question.user.avatar_url.nil? || (@question.signature != @question.user.username) %>
 		        <span class='avatar-placeholder'><i class='fa fa-user fa-3x'></i></span>
 		      <% else %> 
 		        <%= image_tag @question.user.avatar_url(:medium).to_s %>
