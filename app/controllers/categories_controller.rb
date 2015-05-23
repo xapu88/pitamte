@@ -2,7 +2,7 @@ class CategoriesController < ApplicationController
 	before_action :get_category, only: [:show]
 
 	def show
-		@categories = Category.all
+		@categories = Category.order(:position).all
 		@questions = Question.where("category_id = ?", @category.id).page(params[:page])
 		@question = Question.new
 		if request.path != category_path(@category)
