@@ -3,6 +3,7 @@
 	margin-bottom: 80px;
 	h2 {
 		color: #009999;
+		text-align: center;
 	}
 
 	.check-box-row {
@@ -142,6 +143,11 @@
 		}
 		.socials-login-explain {
 			margin-top: 25px;
+		}
+		.recovery-link {
+			a {
+				font-size: 1em;
+			}
 		}
 	}
 }
