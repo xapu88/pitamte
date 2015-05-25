@@ -28,11 +28,13 @@
                     <i class='fa fa-exclamation-circle'></i><%= link_to "Moji odgovori", my_answers_path %>
                   </span>
                 </li>
-                <li>
-                  <span>
-                    <i class='fa fa-user'></i><%= link_to "Detalji profila", edit_user_registration_path %>
-                  </span>
-                </li>
+                <% if current_user.provider != "facebook" && current_user.provider != "twitter" %>
+                  <li>
+                    <span>
+                      <i class='fa fa-user'></i><%= link_to "Detalji profila", edit_user_registration_path %>
+                    </span>
+                  </li>
+                <% end %>
                 <hr />
                 <li>
                   <span>
