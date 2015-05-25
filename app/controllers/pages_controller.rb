@@ -14,9 +14,6 @@ class PagesController < ApplicationController
     @answers = Answer.where(user_id: current_user.id).page(params[:page])
   end
 
-  def contact
-  end
-
   def about
   end
 

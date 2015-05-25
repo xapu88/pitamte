@@ -1,0 +1,30 @@
+<% meta title: "Kontakt" %>
+<div class='container'>
+	<div class='row'>
+		 <div class='col-md-4 col-md-offset-4 col-xs-10 col-xs-offset-1 user-form'>
+		 	<h2>Kontaktiraj nas</h1>
+			<%= form_for @message do |f| %>
+			  <% if @message.errors.any? %>
+			    <div class="error_messages">
+			      <h2><%= pluralize(@message.errors.count, "error") %> prohibited this message from being saved:</h2>
+			      <ul>
+			      <% @message.errors.full_messages.each do |msg| %>
+			        <li><%= msg %></li>
+			      <% end %>
+			      </ul>
+			    </div>
+			  <% end %>
+			  <div class="form-group">
+			    <%= f.text_field :name, placeholder: "Ime", class: "form-control" %>
+			  </div>
+			  <div class="form-group">
+			    <%= f.text_field :email, placeholder: "Email", class: "form-control" %>
+			  </div>
+			  <div class="form-group">
+			    <%= f.text_area :content, :rows => 5, placeholder: "Sadržaj poruke", class: "form-control" %>
+			  </div>
+			  <div class="form-group"><%= f.submit "Pošalji poruku", class: "form-control" %></div>
+			<% end %>
+		</div>
+	</div>
+</div>

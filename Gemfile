@@ -50,6 +50,7 @@ gem 'fog-aws'
 gem 'carrierwave_direct'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+gem "active_attr"
 
 # Use Puma as the app server
 gem 'puma'

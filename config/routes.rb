@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   root 'pages#home'
   get 'moja_pitanja' => 'pages#my_questions', as: 'my_questions'
   get 'moji_odgovori' => 'pages#my_answers', as: 'my_answers'
-  get 'kontakt' => 'pages#contact', as: 'contact'
   get 'o_nama' => 'pages#about', as: 'about'
   get 'uslovi_koriscenja' => 'pages#agreements', as: 'agreements'
+
+  resources :messages, only: [:new, :create], path: 'kontakt'
 end
