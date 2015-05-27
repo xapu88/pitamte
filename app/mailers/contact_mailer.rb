@@ -6,6 +6,7 @@ class ContactMailer < ApplicationMailer
   #   en.contact_mailer.message.subject
   #
   def form_message(message)
+  	@message = message
     mail(:to => "office@pitamte.com", :subject => message.subject, :from => message.email)
   end
 end
