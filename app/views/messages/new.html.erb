@@ -21,6 +21,9 @@
 			    <%= f.text_field :email, placeholder: "Email", class: "form-control" %>
 			  </div>
 			  <div class="form-group">
+			    <%= f.text_field :subject, placeholder: "Naslov poruke", class: "form-control" %>
+			  </div>
+			  <div class="form-group">
 			    <%= f.text_area :content, :rows => 5, placeholder: "Sadržaj poruke", class: "form-control" %>
 			  </div>
 			  <div class="form-group"><%= f.submit "Pošalji poruku", class: "form-control" %></div>
