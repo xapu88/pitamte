@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(params[:message])
     if @message.valid?
-      mail = ContactMailer.create_message(@message)
+      mail = ContactMailer.form_message(@message)
       custom_smtp_settings = { address: 'office@pitamte.com', domain: 'pitamte.com' }
       mail.delivery_method.settings = custom_smtp_settings
       mail.deliver

@@ -5,12 +5,7 @@ class ContactMailer < ApplicationMailer
   #
   #   en.contact_mailer.message.subject
   #
-  def create_message(message)
-    subject message.subject
-    body :message => message
-    recepients "office@pitamte.com"
-    from message.mail
-    sent_on Time.now
-    mail to: "office@pitamte.com"
+  def form_message(message)
+    mail(:to => "office@pitamte.com", :subject => message.subject, :from => message.email)
   end
 end
