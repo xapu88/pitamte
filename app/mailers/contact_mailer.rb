@@ -5,7 +5,7 @@ class ContactMailer < ApplicationMailer
   #
   #   en.contact_mailer.message.subject
   #
-  def message(message)
+  def create_message(message)
     subject message.subject
     body :message => message
     recepients "office@pitamte.com"
