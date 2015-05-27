@@ -7,8 +7,8 @@ class MessagesController < ApplicationController
     @message = Message.new(params[:message])
     if @message.valid?
       mail = ContactMailer.form_message(@message)
-      custom_smtp_settings = { address: 'office@pitamte.com', domain: 'pitamte.com' }
-      mail.delivery_method.settings = custom_smtp_settings
+      custom_smtp_settings = { address: 'office@pitamte.com', domain: 'pitamte.com', port: nil }
+      mail.delivery_method.settings.merge! custom_smtp_settings
       mail.deliver
       redirect_to root_url, notice: "Message sent! Thank you for contacting us."
     else
