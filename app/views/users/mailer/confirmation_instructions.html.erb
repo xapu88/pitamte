@@ -1,6 +1,6 @@
 <h4>Dobrodošli na PitamTe <%= @email %>!</h4>
 
-<p>Svoj nalog možeš da potvrdiš putem veze ispod:</p>
+<p>Svoj nalog možete da potvrdite putem veze ispod:</p>
 
 <strong><p><%= link_to 'Aktiviraj PitamTe nalog', confirmation_url(@resource, confirmation_token: @token) %></p></strong>
 <br /> 
