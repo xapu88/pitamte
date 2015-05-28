@@ -4,7 +4,7 @@ class Question < ActiveRecord::Base
   has_many :answers
   default_scope -> { order(created_at: :desc) }
   validates :category_id, presence: true
-  validates :title, presence: true, length: { minimum: 3, maximum: 50 }
+  validates :title, presence: true, length: { minimum: 5, maximum: 80 }
   validates :content, length: { maximum: 300 }
 
   #has_reputation :votes, source: :user, aggregated_by: :sum

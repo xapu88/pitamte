@@ -20,7 +20,7 @@ class AnswersController < ApplicationController
 		if @answer.save
 			redirect_to question_path(@question.id), note: "Odgovor uspesno postavljen!"
 		else
-			redirect_to question_path(@question.id), alert: "GRESKA! Niste ispravno uneli odgovor."
+			redirect_to question_path(@question.id), alert: "GRESKA! Odgovor mora biti dužine od 2 do 1000 karaktera."
 		end
 	end
 

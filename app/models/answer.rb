@@ -3,7 +3,7 @@ class Answer < ActiveRecord::Base
   belongs_to :question
   validates :user_id, presence: true
   validates :question_id, presence: true
-  validates :content, presence: true, length: { minimum: 3, maximum: 1000 }
+  validates :content, presence: true, length: { minimum: 2, maximum: 1000 }
 
   has_reputation :votes, source: :user, aggregated_by: :sum
 
