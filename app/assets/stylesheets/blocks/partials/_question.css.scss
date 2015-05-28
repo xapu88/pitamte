@@ -238,19 +238,47 @@
 
 #question-form {
 	background-color: #f8f8f8;
+	textarea {
+		margin-top: 30px;
+	}
+	#title-length {
+		float: right;
+		color: #cc0000;
+	}
+	#title-length.regular {
+		color: #ccc;
+	}
+	#content-length {
+		float: right;
+		color: #cc0000;
+	}
+	#content-length.regular {
+		color: #ccc;
+	}
+	#username {
+		display: none;
+		margin-top: 5px;
+	}
+
+	#username.visible {
+		display: block;
+	}#username-length {
+		display: none;
+	}
+
+	#username-length.visible {
+		margin-bottom: 10px;
+		display: block;
+		float: right;
+		color: #ccc;
+	}
+	#username-length.longer.visible {
+		color: #cc0000;
+	}
 }
 
 .question-form {
 	margin-top: 15px;
-}
-
-#username {
-	display: none;
-	margin-top: 5px;
-}
-
-#username.visible {
-	display: block;
 }
 
 .signin-to-answer {

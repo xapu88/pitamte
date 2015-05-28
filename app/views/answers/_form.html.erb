@@ -1,7 +1,8 @@
-<div class='col-sm-12 question-form'>
+<div id="question-form" class='col-sm-12 question-form'>
 	<%= form_for @answer do |f| %>
 		<div class="form-group">
 			<%= f.text_area :content, placeholder: "Upiši odgovor", class: "form-control" %>
+			<span id="content-length" class="regular">preostalo 1000 karaktera</span>
 		</div>
 		<% if @answer.new_record? %>
 			<%= f.hidden_field :question_id, :value => @question.id %>
@@ -11,6 +12,7 @@
       <span>Potpiši se</span>
       <% if current_user.username.nil? %>
 				<%= text_field_tag :username, nil, placeholder: "Korisničko ime" %>
+				<span id="username-length" class="longer">ne može biti prazno</span>
 			<% end %>
     </div>
 		<div class="form-group">
@@ -23,9 +25,40 @@
 	$("#sign").change(function() {
     if(this.checked) {
     	$("#username").addClass("visible");
+    	$("#username-length").addClass("visible");
     }
     else if(!this.checked) {
     	$("#username").removeClass("visible");
+    	$("#username-remove").addClass("visible");
     }
+	});
+	$("textarea[name='answer[content]']").on('keyup',function(){
+		var max = 1000;
+      	var len = $(this).val().length;
+      	if (len > max) {
+      		var car = len-max;
+      		$('#content-length').removeClass("regular");
+		    $('#content-length').text('prekoračili ste dozvoljenu dužinu +' + car);
+		} else {
+		    var car = max - len;
+		    $('#content-length').addClass("regular");
+		    $('#content-length').text('prostalo ' + car + ' karaktera');
+		}
+	});
+	$("input[name='username']").on('keyup',function(){
+		var max = 30;
+		var len = $(this).val().length;
+    if (len > max) {
+      var car = len-max;
+      $('#username-length').addClass("longer");
+		  $('#username-length').text('prekoračili ste dozvoljenu dužinu +' + car);
+		} else if (len == 0) {
+			$('#username-length').addClass("longer");
+			$('#username-length').text('ne može biti prazno');
+		} else {
+		    var car = max - len;
+		    $('#username-length').removeClass("longer");
+		    $('#username-length').text('prostalo ' + car + ' karaktera');
+		}
 	});
 </script>
